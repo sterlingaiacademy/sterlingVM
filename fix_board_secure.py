@@ -1,4 +1,6 @@
-"use client";
+import os
+
+code = '''"use client";
 
 import { useState } from "react";
 import { Calendar, Bell, User, Phone, MapPin, Clock, GraduationCap, AlertTriangle } from "lucide-react";
@@ -38,7 +40,6 @@ export function UpcomingEventsBoard({ logs }: { logs: any[] }) {
     }
   });
 
-
   // Sort newest first
   allEvents.sort((a, b) => b.fullDate.getTime() - a.fullDate.getTime());
 
@@ -76,25 +77,25 @@ export function UpcomingEventsBoard({ logs }: { logs: any[] }) {
         <div className="flex bg-gray-50 dark:bg-black/50 p-1.5 rounded-xl border border-gray-100 dark:border-white/5 relative z-10 backdrop-blur-xl overflow-x-auto max-w-full hide-scrollbar snap-x">
           <button 
             onClick={() => setSelectedDate("today")}
-            className={`px-5 py-2 text-[10px] font-extrabold uppercase tracking-widest rounded-lg transition-all duration-300 ${selectedDate === "poday" ? "bg-white dark:bg-[#222] text-purple-600 shadow-sm" : "text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
+            className={ + "" + px-5 py-2 text-[10px] font-extrabold uppercase tracking-widest rounded-lg transition-all duration-300  + "" + }
           >
             Today
           </button>
           <button 
             onClick={() => setSelectedDate("yesterday")}
-            className={`px-5 py-2 text-[10px] font-extrabold uppercase tracking-widest rounded-lg transition-all duration-300 ${selectedDate === "yesterday" ? "bg-white dark:bg-[#222] text-purple-600 shadow-sm" : "text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
+            className={ + "" + px-5 py-2 text-[10px] font-extrabold uppercase tracking-widest rounded-lg transition-all duration-300  + "" + }
           >
             Yesterday
           </button>
           <button 
             onClick={() => setSelectedDate("past")}
-            className={`px-5 py-2 text-[10px] font-extrabold uppercase tracking-widest rounded-lg transition-all duration-300 ${selectedDate === "past" ? "bg-white dark:bg-[#222] text-purple-600 shadow-sm" : "text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
+            className={ + "" + px-5 py-2 text-[10px] font-extrabold uppercase tracking-widest rounded-lg transition-all duration-300  + "" + }
           >
             Past
           </button>
           <button 
             onClick={() => setSelectedDate("all")}
-            className={`px-5 py-2 text%l10px] font-extrabold uppercase tracking-widest rounded-lg transition-all duration-300 ${selectedDate === "all" ? "bg-white dark:bg-[#222] text-purple-600 shadow-sm" : "text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
+            className={ + "" + px-5 py-2 text-[10px] font-extrabold uppercase tracking-widest rounded-lg transition-all duration-300  + "" + }
           >
             All
           </button>
@@ -125,13 +126,13 @@ export function UpcomingEventsBoard({ logs }: { logs: any[] }) {
               return (
               <div 
                 key={i} 
-                className={`group relative bg-white dark:bg-[#050505] border p-6 rounded-2xl transition-all duration-500 overflow-hidden ${isPast ? 'border-gray-200 dark:border-white/5 opacity-50 grayscale hover:opacity-100 hover:grayscale-0' : 'border-gray-100 dark:border-white/5 hover:border-purple-600/30 hover:shadow-xl hover:-translate-y-1'}`}
+                className={ + "" + group relative bg-white dark:bg-[#050505] border p-6 rounded-2xl transition-all duration-500 overflow-hidden  + "" + }
               >
-                {!isPast && <div className={`absolute -bottom-10 -right-10 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-700 ${evt.type === 'inbound' ? 'bg-blue-500' : 'bg-green-500'}`} />}
+                {!isPast && <div className={ + "" + bsolute -bottom-10 -right-10 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-700  + "" + } />}
                 
                 <div className="flex justify-between items-start mb-6 relative z-10">
-                  <h3 className={`font-extrabold uppercase text.xs tracking-widest ${isPast ? 'text-gray-500' : 'text-gray-900 dark:text-white'}`}>{evt.title}</h3>
-                  <span className={`text-[9px] px-2.5 py-1 rounded-md font-black uppercase tracking-widest shadow-sm ${isPast ? 'bg-gray-100 text-gray-500 dark:bg-white/5' : evt.type === 'inbound' ? 'bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400' : 'bg-green-50 text-green-600 dark:bg-green-500/10 dark:text-green-400'}`}>
+                  <h3 className={ + "" + ont-extrabold uppercase text-xs tracking-widest  + "" + }>{evt.title}</h3>
+                  <span className={ + "" + 	ext-[9px] px-2.5 py-1 rounded-md font-black uppercase tracking-widest shadow-sm  + "" + }>
                     {evt.type}
                   </span>
                 </div>
@@ -139,7 +140,7 @@ export function UpcomingEventsBoard({ logs }: { logs: any[] }) {
                 <div className="space-y-3 mb-6 relative z-10">
                   <div className="flex items-center gap-3 text-sm text-gray-500">
                     <User className="w-4 h-4 text-gray-400" />
-                    <span className="capitalize font-medium">{evt.customer}</span> <span className="font-mono text.xs opacity-50">({evt.phone})</span>
+                    <span className="capitalize font-medium">{evt.customer}</span> <span className="font-mono text-xs opacity-50">({evt.phone})</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-500">
                     <GraduationCap className="w-4 h-4 text-gray-400" />
@@ -151,7 +152,7 @@ export function UpcomingEventsBoard({ logs }: { logs: any[] }) {
                   </div>
                 </div>
                 
-                <div className="pt-4 border-t border-gray-100 dark:border-white/5 flex items-center justify-between text.xs font-bold relative z-10">
+                <div className="pt-4 border-t border-gray-100 dark:border-white/5 flex items-center justify-between text-xs font-bold relative z-10">
                   <div className="flex items-center gap-2 text-gray-500 transition-colors">
                     <Calendar className="w-3.5 h-3.5" />
                     <span>{evt.date}</span>
@@ -169,3 +170,8 @@ export function UpcomingEventsBoard({ logs }: { logs: any[] }) {
     </div>
   );
 }
+'''
+
+path = r'c:\anti\sterlingVM\src\components\UpcomingEventsBoard.tsx'
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(code)
