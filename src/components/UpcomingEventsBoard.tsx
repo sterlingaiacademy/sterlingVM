@@ -48,8 +48,6 @@ export function UpcomingEventsBoard({ data: logs }: { data: any[] }) {
     displayEvents = allEvents.filter(e => e.date === today);
   } else if (selectedDate === "yesterday") {
     displayEvents = allEvents.filter(e => e.date === yesterday);
-  } else if (selectedDate === "past") {
-    displayEvents = allEvents.filter(e => e.date < yesterday);
   } else if (selectedDate === "all") {
     displayEvents = allEvents;
   } else {
@@ -86,12 +84,7 @@ export function UpcomingEventsBoard({ data: logs }: { data: any[] }) {
           >
             Yesterday
           </button>
-          <button 
-            onClick={() => setSelectedDate("past")}
-            className={`px-5 py-2 text-[10px] font-extrabold uppercase tracking-widest rounded-lg transition-all duration-300 ${selectedDate === "past" ? "bg-white dark:bg-[#222] text-purple-600 shadow-sm" : "text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
-          >
-            Past
-          </button>
+          
           <button 
             onClick={() => setSelectedDate("all")}
             className={`px-5 py-2 text%l10px] font-extrabold uppercase tracking-widest rounded-lg transition-all duration-300 ${selectedDate === "all" ? "bg-white dark:bg-[#222] text-purple-600 shadow-sm" : "text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
@@ -101,7 +94,7 @@ export function UpcomingEventsBoard({ data: logs }: { data: any[] }) {
           <div className="flex items-center border-l border-gray-200 dark:border-white/10 pl-3 ml-2">
             <input 
               type="date"
-              value={selectedDate !== "today" && selectedDate !== "yesterday" && selectedDate !== "past" && selectedDate !== "all" ? selectedDate : ""}
+              value={selectedDate !== "today" && selectedDate !== "yesterday" && selectedDate !== "all" ? selectedDate : ""}
               onChange={(e) => {
                 if (e.target.value) setSelectedDate(e.target.value);
               }}
