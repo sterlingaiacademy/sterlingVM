@@ -135,6 +135,8 @@ export default async function DashboardOverview() {
 }
 
 function StatCard({ title, value, icon: Icon, trend, isGood = false, delay = "0" }: any) {
+  const valStr = String(value);
+  const textClass = valStr.length > 15 ? "text-lg leading-tight" : valStr.length > 8 ? "text-2xl" : "text-4xl tracking-tighter";
   return (
     <div 
       className="group relative bg-white dark:bg-[#050505] border border-gray-100 dark:border-white/5 p-6 rounded-3xl hover:border-purple-600/30 dark:hover:border-purple-600/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden cursor-default"
@@ -149,7 +151,7 @@ function StatCard({ title, value, icon: Icon, trend, isGood = false, delay = "0"
         </div>
       </div>
       
-      <div className="text-4xl font-black tracking-tighter mb-2 text-gray-900 dark:text-white relative z-10">
+      <div className={ont-black mb-2 text-gray-900 dark:text-white relative z-10 }>
         {value}
       </div>
       
