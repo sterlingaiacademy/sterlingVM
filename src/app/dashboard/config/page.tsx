@@ -179,7 +179,7 @@ export default function ConfigPage() {
               )}
               
               {status === 'error' && (
-                <div className="p-4 rounded-xl text-sm font-medium bg-red-50 text-purple-600 dark:bg-red-500/10 dark:text-red-400 border border-red-500/20 flex items-start gap-3 mt-4 animate-pop">
+                <div className="p-4 rounded-xl text-sm font-medium bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-400 border border-red-500/20 flex items-start gap-3 mt-4 animate-pop">
                   <AlertCircle className="w-5 h-5 shrink-0" />
                   <p>{message}</p>
                 </div>
@@ -223,7 +223,7 @@ export default function ConfigPage() {
                 </button>
               </div>
               {sysStatus === 'success' && <div className="p-4 rounded-xl text-sm font-medium bg-green-50 text-green-600 dark:bg-green-500/10 dark:text-green-400 border border-green-500/20 flex items-start gap-3 mt-4"><CheckCircle2 className="w-5 h-5 shrink-0" /><p>{sysMessage}</p></div>}
-              {sysStatus === 'error' && <div className="p-4 rounded-xl text-sm font-medium bg-red-50 text-purple-600 dark:bg-red-500/10 dark:text-red-400 border border-red-500/20 flex items-start gap-3 mt-4"><AlertCircle className="w-5 h-5 shrink-0" /><p>{sysMessage}</p></div>}
+              {sysStatus === 'error' && <div className="p-4 rounded-xl text-sm font-medium bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-400 border border-red-500/20 flex items-start gap-3 mt-4"><AlertCircle className="w-5 h-5 shrink-0" /><p>{sysMessage}</p></div>}
             </form>
           </div>
         </div>

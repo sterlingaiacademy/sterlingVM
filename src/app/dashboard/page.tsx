@@ -135,13 +135,14 @@ export default async function DashboardOverview() {
 }
 
 function StatCard({ title, value, icon: Icon, trend, isGood = false, delay = "0" }: any) {
-  const valStr = String(value);
-  const textClass = valStr.length > 15 ? "text-lg leading-tight" : valStr.length > 8 ? "text-2xl" : "text-4xl tracking-tighter";
+  const valStr = String(value).trim();
+  const isVeryLong = valStr.length > 13;
+  const isLong = valStr.length > 7;
 
   return (
     <div 
       className="group relative bg-white dark:bg-[#050505] border border-gray-100 dark:border-white/5 p-6 rounded-3xl hover:border-purple-600/30 dark:hover:border-purple-600/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden cursor-default"
-      style={{ animationDelay: `${delay}ms` }}
+      style={{ animationDelay: delay + 'ms' }}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-purple-600/0 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
@@ -152,11 +153,18 @@ function StatCard({ title, value, icon: Icon, trend, isGood = false, delay = "0"
         </div>
       </div>
       
-      <div className={`font-black mb-2 text-gray-900 dark:text-white relative z-10 ${textClass}`}>
+      <div 
+        className="font-black mb-2 text-gray-900 dark:text-white relative z-10"
+        style={{
+          fontSize: isVeryLong ? '1.5rem' : isLong ? '1.75rem' : '2.5rem',
+          lineHeight: isVeryLong ? '1.2' : '1',
+          letterSpacing: '-0.05em'
+        }}
+      >
         {value}
       </div>
       
-      <div className={`text-[10px] font-bold uppercase tracking-widest relative z-10 flex items-center gap-1.5 ${isGood ? 'text-green-500' : 'text-gray-400'}`}>
+      <div className={"text-[10px] font-bold uppercase tracking-widest relative z-10 flex items-center gap-1.5 " + (isGood ? "text-green-500" : "text-gray-400")}>
         {trend}
       </div>
     </div>

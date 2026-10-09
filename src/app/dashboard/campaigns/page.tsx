@@ -284,7 +284,7 @@ export default function CampaignsPage() {
         <div className="fixed bottom-8 right-8 z-50 animate-in slide-in-from-bottom-5 fade-in duration-300">
           <div className={`flex items-center gap-3 px-6 py-4 rounded-xl shadow-2xl border ${
             toast.type === 'success' ? 'bg-black dark:bg-white border-zinc-800 dark:border-gray-200 text-white dark:text-black' :
-            toast.type === 'error' ? 'bg-purple-600 border-red-700 text-white' :
+            toast.type === 'error' ? 'bg-red-600 border-red-700 text-white' :
             'bg-black dark:bg-white border-zinc-800 dark:border-gray-200 text-white dark:text-black'
           }`}>
             {toast.type === 'success' && <CheckCircle className="w-5 h-5" />}
