@@ -7,10 +7,10 @@ const COLORS = ['#E21836', '#FF9800', '#4CAF50', '#2196F3', '#9C27B0'];
 export function LeadSourceChart({ data }: { data: any[] }) {
   const vehicleCounts: Record<string, number> = {};
   data.forEach((log) => {
-    let v = log["Vehicle Model"]?.trim();
+    let v = log["Program of Interest"]?.trim();
     if (v && v !== "-") {
       // Normalize common duplicates slightly
-      if (v.toLowerCase().includes("xuv seven")) v = "XUV700";
+      if (v.toLowerCase().includes("xuv seven")) v = "AI Masterclass";
       if (v.toLowerCase().includes("xuv three")) v = "XUV300";
       vehicleCounts[v] = (vehicleCounts[v] || 0) + 1;
     }
@@ -75,7 +75,7 @@ export function LeadStatusChart({ data }: { data: any[] }) {
   });
 
   const chartData = [
-    { name: "Showroom Booking", value: showroom },
+    { name: "Office Booking", value: showroom },
     { name: "Service Lead", value: service },
     { name: "Open / No Booking", value: open }
   ];

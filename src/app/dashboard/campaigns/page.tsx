@@ -23,9 +23,9 @@ export default function CampaignsPage() {
   const [audienceToDelete, setAudienceToDelete] = useState<string | null>(null);
 
   // WhatsApp State
-  const [adBody, setAdBody] = useState("Hi there! Discover our latest models and book a test drive today.");
+  const [adBody, setAdBody] = useState("Hi there! Discover our latest models and book a demo today.");
   const [adFooter, setAdFooter] = useState("");
-  const [buttonText, setButtonText] = useState("Book Test Drive");
+  const [buttonText, setButtonText] = useState("Book Demo");
   const [buttonUrl, setButtonUrl] = useState("https://sterling.com/test-drive");
   
   // Instagram State
@@ -85,7 +85,7 @@ export default function CampaignsPage() {
     setPlatform(draft.platform || 'whatsapp');
     setAdBody(draft.adBody || "");
     setAdFooter(draft.adFooter || "");
-    setButtonText(draft.buttonText || "Book Test Drive");
+    setButtonText(draft.buttonText || "Book Demo");
     setButtonUrl(draft.buttonUrl || "https://sterling.com/test-drive");
     setIgCaption(draft.igCaption || "");
     setImageBlob(draft.imageBlob || null);

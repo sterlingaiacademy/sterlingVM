@@ -27,7 +27,7 @@ export default async function PipelinePage() {
   logs.forEach(rawLog => {
     // Spread to avoid mutating the original parsed CSV object
     const log = { ...rawLog };
-    const vehicle = log["Vehicle Model"]?.trim() || "";
+    const vehicle = log["Program of Interest"]?.trim() || "";
     const visitDayRaw = log["Visit Day"]?.trim() || "";
     let visitDay = visitDayRaw;
     const callDateStr = log["Call Date"];
@@ -137,10 +137,10 @@ function PipelineCard({ item, i }: { item: any, i: number }) {
         {item["Phone Number"]}
       </div>
       
-      {(item["Vehicle Model"] && item["Vehicle Model"] !== "-") && (
+      {(item["Program of Interest"] && item["Program of Interest"] !== "-") && (
         <div className="mb-4 relative z-10">
-          <span className="text-[9px] font-black uppercase tracking-widest text-gray-400 block mb-1.5">Vehicle Focus</span>
-          <span className="text-[10px] font-extrabold text-red-600 bg-red-600/10 px-2.5 py-1 rounded-md uppercase tracking-wider">{item["Vehicle Model"]}</span>
+          <span className="text-[9px] font-black uppercase tracking-widest text-gray-400 block mb-1.5">Program Focus</span>
+          <span className="text-[10px] font-extrabold text-red-600 bg-red-600/10 px-2.5 py-1 rounded-md uppercase tracking-wider">{item["Program of Interest"]}</span>
         </div>
       )}
 

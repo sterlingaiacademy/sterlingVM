@@ -8,14 +8,14 @@ import { useRef, useState, useEffect } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const liveCallVariants = [
-  '"I would like to book a test drive."',
+  '"I would like to book a demo."',
   '"What are the EMI options for Scorpio-N?"',
-  '"Is my XUV700 ready for service pickup?"',
+  '"Is my AI Masterclass ready for service pickup?"',
   '"Can I reschedule my appointment to Friday?"'
 ];
 
 const crmVariants = [
-  { lead: "Rahul Menon", status: "Test Drive Booked" },
+  { lead: "Rahul Menon", status: "Demo Booked" },
   { lead: "Anjali Nair", status: "Finance Enquiry Logged" },
   { lead: "Priya Sharma", status: "Service Confirmed" },
   { lead: "Vikram Reddy", status: "Rescheduled (Fri)" }
@@ -58,8 +58,8 @@ export default function LandingPage() {
       }`}>
         <div className="flex items-center gap-3 pointer-events-auto">
           {/* Always white when at top. When scrolled, hide in light mode, show in dark mode */}
-          <img src="/logo_dark.png" alt="sterling Logo" className={`h-[60px] md:h-[85px] w-auto object-contain transition-all drop-shadow-md ${scrolled ? 'hidden dark:block' : 'block'}`} />
-          <img src="/logo_transparent.png" alt="sterling Logo" className={`h-[60px] md:h-[85px] w-auto object-contain transition-all ${scrolled ? 'block dark:hidden' : 'hidden'}`} />
+          <div className=\"text-2xl font-black tracking-widest text-white italic\">STERLING<span className=\"text-indigo-500\">AI</span></div>
+          <div className=\"text-2xl font-black tracking-widest text-white italic\">STERLING<span className=\"text-indigo-500\">AI</span></div>
         </div>
 
         <div className="flex items-center gap-4 md:gap-6 pointer-events-auto">
@@ -142,7 +142,7 @@ export default function LandingPage() {
             <FeatureCard 
               icon={<CalendarCheck className="w-8 h-8 text-red-600" />}
               title="Booking Management"
-              description="Assist customers with new service appointments, test drive bookings, rescheduling, and cancellations."
+              description="Assist customers with new service appointments, demo bookings, rescheduling, and cancellations."
             />
             <FeatureCard 
               icon={<FileAudio className="w-8 h-8 text-red-600" />}

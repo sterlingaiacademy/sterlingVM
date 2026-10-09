@@ -74,10 +74,10 @@ export function UpcomingEventsBoard({ data }: { data: any[] }) {
       allEvents.push({
         id: `${log["Phone Number"] || "x"}_${log["Call Date"] || "x"}_${log["Visit Day"] || "x"}`,
         type: serviceType && serviceType !== "-" ? "service" : "showroom",
-        title: serviceType && serviceType !== "-" ? `Service: ${serviceType}` : "Showroom Visit",
+        title: serviceType && serviceType !== "-" ? `Service: ${serviceType}` : "Office Visit",
         customer: log["Customer Name"] || "Unknown",
         phone: log["Phone Number"] || "-",
-        vehicle: log["Vehicle Model"] || "Unknown",
+        vehicle: log["Program of Interest"] || "Unknown",
         date: dateString,
         time: time,
       });

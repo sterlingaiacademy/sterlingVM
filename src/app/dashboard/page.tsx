@@ -13,7 +13,7 @@ export default async function DashboardOverview() {
   let serviceBookings = 0;
   let todaysCalls = 0;
   let conversionRate = "0%";
-  let topVehicle = "N/A";
+  let topProgram = "N/A";
   let isOnline = false;
   let logs: any[] = [];
 
@@ -51,9 +51,9 @@ export default async function DashboardOverview() {
         }
         if (isToday) todaysCalls++;
 
-        let vehicle = log["Vehicle Model"]?.trim();
+        let vehicle = log["Program of Interest"]?.trim();
         if (vehicle && vehicle !== "-") {
-          if (vehicle.toLowerCase().includes("xuv seven")) vehicle = "XUV700";
+          if (vehicle.toLowerCase().includes("xuv seven")) vehicle = "AI Masterclass";
           if (vehicle.toLowerCase().includes("xuv three")) vehicle = "XUV300";
           vehicleCounts[vehicle] = (vehicleCounts[vehicle] || 0) + 1;
         }
@@ -63,8 +63,8 @@ export default async function DashboardOverview() {
         conversionRate = Math.round(((showroomVisits + serviceBookings) / totalCalls) * 100) + "%";
       }
 
-      const sortedVehicles = Object.entries(vehicleCounts).sort((a, b) => b[1] - a[1]);
-      if (sortedVehicles.length > 0) topVehicle = sortedVehicles[0][0];
+      const sortedPrograms = Object.entries(vehicleCounts).sort((a, b) => b[1] - a[1]);
+      if (sortedPrograms.length > 0) topProgram = sortedPrograms[0][0];
     }
   } catch (e) {
     console.error("Failed to fetch live stats", e);
@@ -95,10 +95,10 @@ export default async function DashboardOverview() {
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-6 mb-8 md:mb-10">
         <StatCard title="Total Leads" value={totalCalls} icon={Phone} trend="All time" delay="0" />
         <StatCard title="Today's Leads" value={todaysCalls} icon={Clock} trend="Last 24h" delay="75" />
-        <StatCard title="Showroom Visits" value={showroomVisits} icon={Calendar} trend="Booked by AI" delay="150" />
-        <StatCard title="Service Leads" value={serviceBookings} icon={Wrench} trend="Captured by AI" delay="225" />
+        <StatCard title="Consultations" value={showroomVisits} icon={Calendar} trend="Booked by AI" delay="150" />
+        <StatCard title="Support Queries" value={serviceBookings} icon={Wrench} trend="Captured by AI" delay="225" />
         <StatCard title="Conversion" value={conversionRate} icon={Percent} trend="Lead Ratio" isGood={parseFloat(conversionRate) > 10} delay="300" />
-        <StatCard title="Top Vehicle" value={topVehicle} icon={Car} trend="Most Enquired" delay="375" />
+        <StatCard title="Top Program" value={topProgram} icon={Car} trend="Most Enquired" delay="375" />
       </div>
 
       {/* Notice Board Section */}
@@ -112,7 +112,7 @@ export default async function DashboardOverview() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/5 rounded-full blur-3xl -mr-32 -mt-32 transition-transform group-hover:scale-150 duration-700" />
           <h2 className="text-lg font-bold uppercase tracking-widest mb-8 text-gray-800 dark:text-gray-200 relative z-10 flex items-center gap-3">
             <span className="w-2 h-2 rounded-full bg-red-600"></span>
-            Vehicle Enquiries
+            Program Enquiries
           </h2>
           <div className="relative z-10">
             {logs.length > 0 ? <LeadSourceChart data={logs} /> : <EmptyChart />}

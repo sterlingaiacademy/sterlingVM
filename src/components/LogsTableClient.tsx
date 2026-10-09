@@ -41,7 +41,7 @@ export function LogsTableClient({ initialLogs, error }: { initialLogs: any[], er
       result = result.filter(log => 
         (log["Customer Name"] || "").toLowerCase().includes(q) ||
         (log["Phone Number"] || "").toLowerCase().includes(q) ||
-        (log["Vehicle Model"] || "").toLowerCase().includes(q) ||
+        (log["Program of Interest"] || "").toLowerCase().includes(q) ||
         (log["Enquiry Type"] || "").toLowerCase().includes(q)
       );
     }
@@ -181,7 +181,7 @@ export function LogsTableClient({ initialLogs, error }: { initialLogs: any[], er
                 <th className="p-4 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Date</th>
                 <th className="p-4 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Direction</th>
                 <th className="p-4 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Customer Details</th>
-                <th className="p-4 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Vehicle</th>
+                <th className="p-4 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Program</th>
                 <th className="p-4 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Enquiry</th>
                 <th className="p-4 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Service/Visit</th>
               </tr>
@@ -225,7 +225,7 @@ export function LogsTableClient({ initialLogs, error }: { initialLogs: any[], er
                         </div>
                       </td>
                       <td className="p-4 text-sm font-bold text-gray-800 dark:text-gray-200 uppercase tracking-wide">
-                        {log["Vehicle Model"] || "-"}
+                        {log["Program of Interest"] || "-"}
                       </td>
                       <td className="p-4 text-sm">
                         <span className="inline-block px-2 py-1 text-xs rounded-sm bg-red-600/10 text-red-600 font-semibold">
