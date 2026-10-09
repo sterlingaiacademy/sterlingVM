@@ -29,6 +29,10 @@ export default function CampaignsPage() {
   const [buttonUrl, setButtonUrl] = useState("https://sterlingaiacademy.com/enroll");
   
   // Instagram State
+  const [useTemplate, setUseTemplate] = useState(false);
+  const [templateName, setTemplateName] = useState("");
+  const [templateLang, setTemplateLang] = useState("en");
+  
   const [igCaption, setIgCaption] = useState("Experience the extraordinary. \n\n#sterlingAI #Education #Future");
   
   // Shared Media
