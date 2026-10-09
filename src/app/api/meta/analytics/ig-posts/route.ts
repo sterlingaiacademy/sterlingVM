@@ -16,7 +16,7 @@ export async function GET() {
         // If no IG ID, try to find it via Facebook Page ID
         const fbConfig = await prisma.systemConfig.findUnique({ where: { key: 'META_FB_PAGE_ID' } });
         if (fbConfig && fbConfig.value) {
-            const fbRes = await fetch(https://graph.facebook.com/v19.0/?fields=instagram_business_account&access_token=);
+            const fbRes = await fetch(`https://graph.facebook.com/v19.0/${fbConfig.value.trim()}?fields=instagram_business_account&access_token=${access_token}`);
             const fbData = await fbRes.json();
             if (fbData.instagram_business_account?.id) {
                 igAccountId = fbData.instagram_business_account.id;
@@ -29,7 +29,7 @@ export async function GET() {
     }
 
     // Fetch the recent posts, reels, and stories
-    const mediaRes = await fetch(https://graph.facebook.com/v19.0//media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,comments_count,like_count&limit=20&access_token=);
+    const mediaRes = await fetch(`https://graph.facebook.com/v19.0/${igAccountId}/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,comments_count,like_count&limit=20&access_token=${access_token}`);
     const mediaData = await mediaRes.json();
 
     if (mediaData.error) {
