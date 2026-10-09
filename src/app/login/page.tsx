@@ -80,7 +80,7 @@ export default function LoginPage() {
       {/* Login Form Container */}
       <div className="relative z-10 w-full max-w-md p-6 md:p-10 mx-4 backdrop-blur-xl bg-black/40 border border-white/10 shadow-2xl rounded-sm">
         <div className="flex justify-center mb-10">
-          <div className="text-2xl font-black tracking-widest text-white italic">STERLING<span className="text-purple-500">AI</span></div>
+          <img src="/text_logo_white.png" alt="Sterling Logo" className="h-12 w-auto object-contain opacity-90" />
         </div>
         
         <h1 className="text-2xl font-bold text-white text-center uppercase tracking-widest mb-8">

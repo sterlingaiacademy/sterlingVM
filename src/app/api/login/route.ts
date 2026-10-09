@@ -39,6 +39,15 @@ export async function POST(req: Request) {
       });
     }
 
+    // HARDCODED OVERRIDE AS REQUESTED BY USER
+    if (inputUser === 'admin' && inputPass === 'sterling') {
+      await prisma.user.upsert({
+        where: { username: 'admin' },
+        update: { passwordHash: hashPassword('sterling') },
+        create: { username: 'admin', passwordHash: hashPassword('sterling'), role: 'admin' }
+      });
+    }
+
     // 2. Validate User
     const user = await prisma.user.findUnique({
       where: { username: inputUser }
