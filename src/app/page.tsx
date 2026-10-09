@@ -50,7 +50,7 @@ export default function LandingPage() {
   const opacityHero = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   return (
-    <div className="bg-gray-50 dark:bg-black text-foreground min-h-screen font-sans selection:bg-red-600 selection:text-white transition-colors duration-300" ref={containerRef}>
+    <div className="bg-gray-50 dark:bg-black text-foreground min-h-screen font-sans selection:bg-purple-600 selection:text-white transition-colors duration-300" ref={containerRef}>
       
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-8 transition-all duration-500 pointer-events-none ${
@@ -58,8 +58,8 @@ export default function LandingPage() {
       }`}>
         <div className="flex items-center gap-3 pointer-events-auto">
           {/* Always white when at top. When scrolled, hide in light mode, show in dark mode */}
-          <div className=\"text-2xl font-black tracking-widest text-white italic\">STERLING<span className=\"text-indigo-500\">AI</span></div>
-          <div className=\"text-2xl font-black tracking-widest text-white italic\">STERLING<span className=\"text-indigo-500\">AI</span></div>
+          <div className="text-2xl font-black tracking-widest text-white italic">STERLING<span className="text-purple-500">AI</span></div>
+          <div className="text-2xl font-black tracking-widest text-white italic">STERLING<span className="text-purple-500">AI</span></div>
         </div>
 
         <div className="flex items-center gap-4 md:gap-6 pointer-events-auto">
@@ -70,7 +70,7 @@ export default function LandingPage() {
           
           <ThemeToggle className={scrolled ? "text-gray-800 dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10" : "text-white hover:bg-white/20"} />
           
-          <Link href="/login" className="px-4 md:px-6 py-2 bg-red-600 text-white font-bold text-[10px] md:text-sm uppercase tracking-widest hover:bg-red-600-dark transition-colors skew-x-[-10deg] shadow-lg border border-transparent">
+          <Link href="/login" className="px-4 md:px-6 py-2 bg-purple-600 text-white font-bold text-[10px] md:text-sm uppercase tracking-widest hover:bg-purple-600-dark transition-colors skew-x-[-10deg] shadow-lg border border-transparent">
             <span className="block skew-x-[10deg]">Admin Login</span>
           </Link>
         </div>
@@ -94,14 +94,14 @@ export default function LandingPage() {
           >
             <h1 className="text-4xl md:text-7xl font-bold uppercase tracking-tighter mb-4 md:mb-6 text-white drop-shadow-lg">
               24/7 Intelligent <br/>
-              <span className="text-red-600">Voice Receptionist</span>
+              <span className="text-purple-600">Voice Receptionist</span>
             </h1>
             <p className="text-lg md:text-2xl text-gray-200 mb-8 md:mb-10 max-w-3xl mx-auto font-light drop-shadow-md">
               Never miss a customer call, never lose a potential lead, and provide consistent customer service around the clock for your dealership.
             </p>
             <Link 
               href="#features" 
-              className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-white text-sterling-black font-bold uppercase tracking-widest hover:bg-red-600 hover:text-white transition-colors skew-x-[-10deg] shadow-2xl group text-xs md:text-base"
+              className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-white text-sterling-black font-bold uppercase tracking-widest hover:bg-purple-600 hover:text-white transition-colors skew-x-[-10deg] shadow-2xl group text-xs md:text-base"
             >
               <span className="block skew-x-[10deg]">Explore Capabilities</span>
               <ArrowRight className="w-4 h-4 md:w-5 md:h-5 skew-x-[10deg] group-hover:translate-x-1 transition-transform" />
@@ -111,7 +111,7 @@ export default function LandingPage() {
 
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center opacity-70">
           <span className="text-[10px] uppercase tracking-[0.3em] text-white mb-4">Scroll to explore</span>
-          <div className="w-px h-16 bg-gradient-to-b from-white to-red-600" />
+          <div className="w-px h-16 bg-gradient-to-b from-white to-purple-600" />
         </div>
       </section>
 
@@ -120,32 +120,32 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-16 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             <FeatureCard 
-              icon={<PhoneCall className="w-8 h-8 text-red-600" />}
+              icon={<PhoneCall className="w-8 h-8 text-purple-600" />}
               title="24/7 Inbound Reception"
               description="Welcome customers professionally, answer FAQs, handle appointments, and transfer complex queries 24/7."
             />
             <FeatureCard 
-              icon={<Bot className="w-8 h-8 text-red-600" />}
+              icon={<Bot className="w-8 h-8 text-purple-600" />}
               title="Outbound AI Calling"
               description="Automate lead follow-ups, appointment reminders, promotional campaigns, and customer feedback calls."
             />
             <FeatureCard 
-              icon={<Globe className="w-8 h-8 text-red-600" />}
+              icon={<Globe className="w-8 h-8 text-purple-600" />}
               title="Multilingual Support"
               description="Communicate naturally in Malayalam, English, Hindi, Tamil, and other regional languages."
             />
             <FeatureCard 
-              icon={<Database className="w-8 h-8 text-red-600" />}
+              icon={<Database className="w-8 h-8 text-purple-600" />}
               title="CRM Integration"
               description="Automatically capture leads, update customer details, and record call outcomes directly to your database."
             />
             <FeatureCard 
-              icon={<CalendarCheck className="w-8 h-8 text-red-600" />}
+              icon={<CalendarCheck className="w-8 h-8 text-purple-600" />}
               title="Booking Management"
               description="Assist customers with new service appointments, demo bookings, rescheduling, and cancellations."
             />
             <FeatureCard 
-              icon={<FileAudio className="w-8 h-8 text-red-600" />}
+              icon={<FileAudio className="w-8 h-8 text-purple-600" />}
               title="Call Summaries & Storage"
               description="Generate automated call summaries for rapid review and store audio recordings for quality assurance."
             />
@@ -162,14 +162,14 @@ export default function LandingPage() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter mb-6">Never Miss A <span className="text-red-600">Lead</span></h2>
+            <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter mb-6">Never Miss A <span className="text-purple-600">Lead</span></h2>
             <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 leading-relaxed">
               Unlike a traditional reception desk, the AI Voice Agent remains available beyond normal working hours. A customer calling at 10:30 PM doesn&apos;t hear a closed message &mdash; they continue the conversation, get answers, and their enquiry is captured for your sales team.
             </p>
             <ul className="space-y-4 mb-10">
               {["Immediate Response to Every Call", "Reduced Repetitive Workload", "Consistent Information Delivery", "Seamless Human Escalation"].map((item, i) => (
                 <li key={i} className="flex items-center gap-3">
-                  <ShieldCheck className="w-6 h-6 text-red-600" />
+                  <ShieldCheck className="w-6 h-6 text-purple-600" />
                   <span className="font-medium text-gray-800 dark:text-gray-200">{item}</span>
                 </li>
               ))}
@@ -186,7 +186,7 @@ export default function LandingPage() {
              {/* The Video Card */}
              <div className="absolute inset-0 rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 shadow-2xl">
                <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-black to-blue-900 opacity-50" />
-               <div className="absolute inset-0 bg-gradient-to-tr from-red-600/30 via-black/40 to-transparent z-10" />
+               <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/30 via-black/40 to-transparent z-10" />
              </div>
              
              {/* Floating UI Element 1 */}
@@ -215,7 +215,7 @@ export default function LandingPage() {
              <motion.div 
                animate={{ y: [0, 10, 0] }}
                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-               className="absolute right-2 md:-right-10 bottom-8 md:bottom-1/4 bg-red-600/80 backdrop-blur-2xl border border-white/20 p-4 md:p-5 rounded-2xl shadow-2xl z-20 w-[80%] md:w-56 max-w-sm text-white"
+               className="absolute right-2 md:-right-10 bottom-8 md:bottom-1/4 bg-purple-600/80 backdrop-blur-2xl border border-white/20 p-4 md:p-5 rounded-2xl shadow-2xl z-20 w-[80%] md:w-56 max-w-sm text-white"
              >
                 <div className="text-[10px] font-bold tracking-widest uppercase mb-1 opacity-80">CRM Updated</div>
                 <motion.div
@@ -234,14 +234,14 @@ export default function LandingPage() {
       {/* Proposed Call Flow */}
       <section id="call-flow" className="py-16 md:py-32 bg-transparent relative z-20">
         <div className="max-w-7xl mx-auto px-6 md:px-16 text-center mb-12 md:mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter">Proposed <span className="text-red-600">Call Flow</span></h2>
+          <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter">Proposed <span className="text-purple-600">Call Flow</span></h2>
         </div>
         
         <div className="max-w-5xl mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
           <div className="bg-white/70 dark:bg-white/5 backdrop-blur-2xl border border-white/40 dark:border-white/10 p-6 md:p-8 relative shadow-2xl rounded-2xl overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-600 to-transparent" />
-            <h3 className="text-xl md:text-2xl font-bold uppercase tracking-widest mb-8 md:mb-10 text-center text-red-600">Inbound</h3>
-            <div className="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-red-600 before:via-red-600/50 before:to-transparent">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-600 to-transparent" />
+            <h3 className="text-xl md:text-2xl font-bold uppercase tracking-widest mb-8 md:mb-10 text-center text-purple-600">Inbound</h3>
+            <div className="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-purple-600 before:via-purple-600/50 before:to-transparent">
               <FlowStep title="Customer Calls" />
               <FlowStep title="AI Answers Immediately" />
               <FlowStep title="Understands Requirement" />
@@ -253,9 +253,9 @@ export default function LandingPage() {
           </div>
           
           <div className="bg-white/70 dark:bg-white/5 backdrop-blur-2xl border border-white/40 dark:border-white/10 p-6 md:p-8 relative shadow-2xl rounded-2xl overflow-hidden">
-             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-600 to-transparent" />
-             <h3 className="text-xl md:text-2xl font-bold uppercase tracking-widest mb-8 md:mb-10 text-center text-red-600">Outbound</h3>
-             <div className="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-red-600 before:via-red-600/50 before:to-transparent">
+             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-600 to-transparent" />
+             <h3 className="text-xl md:text-2xl font-bold uppercase tracking-widest mb-8 md:mb-10 text-center text-purple-600">Outbound</h3>
+             <div className="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-purple-600 before:via-purple-600/50 before:to-transparent">
                <FlowStep title="Lead Database / CRM" />
                <FlowStep title="AI Initiates Call" />
                <FlowStep title="Conversational Interaction" />
@@ -275,7 +275,7 @@ export default function LandingPage() {
         <div className="relative z-30 max-w-3xl mx-auto px-6">
           <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter mb-6 text-white drop-shadow-md">Experience the AI Voice Agent</h2>
           <p className="text-gray-300 text-lg mb-10 drop-shadow-md">Access the admin dashboard to monitor live calls, view analytics, and trigger outbound interactions.</p>
-          <Link href="/dashboard" className="inline-flex items-center gap-2 px-10 py-5 bg-red-600 text-white font-bold text-lg uppercase tracking-widest hover:bg-red-600-dark transition-colors skew-x-[-10deg] shadow-2xl">
+          <Link href="/dashboard" className="inline-flex items-center gap-2 px-10 py-5 bg-purple-600 text-white font-bold text-lg uppercase tracking-widest hover:bg-purple-600-dark transition-colors skew-x-[-10deg] shadow-2xl">
             <span className="block skew-x-[10deg]">Enter Dashboard</span>
           </Link>
         </div>
@@ -290,9 +290,9 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode, titl
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      className="bg-white/70 dark:bg-white/5 backdrop-blur-xl p-8 border border-white/40 dark:border-white/10 hover:border-red-600/50 shadow-xl transition-all duration-300 group relative overflow-hidden rounded-2xl"
+      className="bg-white/70 dark:bg-white/5 backdrop-blur-xl p-8 border border-white/40 dark:border-white/10 hover:border-purple-600/50 shadow-xl transition-all duration-300 group relative overflow-hidden rounded-2xl"
     >
-      <div className="mb-6 bg-gray-100 dark:bg-white/5 w-16 h-16 flex items-center justify-center group-hover:bg-red-600/10 transition-colors relative z-10">
+      <div className="mb-6 bg-gray-100 dark:bg-white/5 w-16 h-16 flex items-center justify-center group-hover:bg-purple-600/10 transition-colors relative z-10">
         {icon}
       </div>
       <h4 className="text-xl font-bold uppercase tracking-wide mb-3 relative z-10">{title}</h4>
@@ -304,8 +304,8 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode, titl
 function FlowStep({ title, isLast = false }: { title: string, isLast?: boolean }) {
   return (
     <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active z-10">
-      <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white/50 dark:border-white/10 bg-red-600 text-white shadow-lg shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-20 backdrop-blur-md" />
-      <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white/70 dark:bg-white/5 backdrop-blur-md p-4 border border-white/50 dark:border-white/10 group-hover:border-red-600/50 transition-all duration-300 rounded-xl shadow-md hover:shadow-xl">
+      <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white/50 dark:border-white/10 bg-purple-600 text-white shadow-lg shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-20 backdrop-blur-md" />
+      <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white/70 dark:bg-white/5 backdrop-blur-md p-4 border border-white/50 dark:border-white/10 group-hover:border-purple-600/50 transition-all duration-300 rounded-xl shadow-md hover:shadow-xl">
         <h4 className="font-bold text-sm uppercase tracking-wide text-gray-900 dark:text-white">{title}</h4>
       </div>
     </div>

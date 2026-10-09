@@ -28,7 +28,7 @@ const STATUS_BADGE: Record<ContactStatus["status"], { label: string; className: 
   queued:  { label: "Queued",  className: "bg-gray-100 dark:bg-white/5 text-gray-500", icon: <Clock className="w-3 h-3" /> },
   calling: { label: "Calling…", className: "bg-blue-500/10 text-blue-500 animate-pulse", icon: <PhoneOutgoing className="w-3 h-3" /> },
   done:    { label: "Done",    className: "bg-green-500/10 text-green-500", icon: <CheckCircle2 className="w-3 h-3" /> },
-  failed:  { label: "Failed",  className: "bg-red-500/10 text-red-600", icon: <PhoneOff className="w-3 h-3" /> },
+  failed:  { label: "Failed",  className: "bg-red-500/10 text-purple-600", icon: <PhoneOff className="w-3 h-3" /> },
   skipped: { label: "Skipped", className: "bg-yellow-500/10 text-yellow-500", icon: <AlertCircle className="w-3 h-3" /> },
 };
 
@@ -243,7 +243,7 @@ export default function OutboundTriggerPage() {
             <div>
               <h2 className="text-sm font-black uppercase tracking-widest text-gray-900 dark:text-white flex items-center gap-2">
                 {campaign.status === "running" ? (
-                  <><Loader2 className="w-4 h-4 animate-spin text-red-600" /> Campaign Running</>
+                  <><Loader2 className="w-4 h-4 animate-spin text-purple-600" /> Campaign Running</>
                 ) : (
                   <><CheckCircle2 className="w-4 h-4 text-green-500" /> Campaign Complete</>
                 )}
@@ -260,7 +260,7 @@ export default function OutboundTriggerPage() {
                 <button
                   onClick={retryFailed}
                   disabled={isStarting}
-                  className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white text-xs font-bold uppercase tracking-widest rounded-full hover:bg-[#cc0000] transition-colors disabled:opacity-50 shadow-md"
+                  className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white text-xs font-bold uppercase tracking-widest rounded-full hover:bg-[#cc0000] transition-colors disabled:opacity-50 shadow-md"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
                   Retry {failedCount} Failed
@@ -290,7 +290,7 @@ export default function OutboundTriggerPage() {
             </div>
             <div className="h-2 bg-gray-100 dark:bg-white/10 rounded-full overflow-hidden">
               <div
-                className="h-full bg-red-600 rounded-full transition-all duration-700"
+                className="h-full bg-purple-600 rounded-full transition-all duration-700"
                 style={{ width: `${progressPct}%` }}
               />
             </div>
@@ -319,7 +319,7 @@ export default function OutboundTriggerPage() {
                         </p>
                         <p className="text-xs text-gray-400 font-mono">{contact.phone}{contact.vehicle ? ` · ${contact.vehicle}` : ""}</p>
                         {contact.error && (
-                          <p className="text-[10px] text-red-600 mt-0.5">{contact.error}</p>
+                          <p className="text-[10px] text-purple-600 mt-0.5">{contact.error}</p>
                         )}
                       </div>
                     </div>
@@ -355,30 +355,30 @@ export default function OutboundTriggerPage() {
               <input
                 type="tel" required value={phone} onChange={e => setPhone(e.target.value)}
                 placeholder="+91 9876543210"
-                className="w-full bg-gray-50 dark:bg-[#050505] border border-gray-200 dark:border-white/10 p-3 text-sm focus:outline-none focus:border-red-600 transition-colors font-mono dark:text-white text-gray-900"
+                className="w-full bg-gray-50 dark:bg-[#050505] border border-gray-200 dark:border-white/10 p-3 text-sm focus:outline-none focus:border-purple-600 transition-colors font-mono dark:text-white text-gray-900"
               />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-bold uppercase text-gray-500 dark:text-gray-400 mb-2">Customer Name</label>
                 <input type="text" value={customerName} onChange={e => setCustomerName(e.target.value)} placeholder="e.g. Rahul Menon"
-                  className="w-full bg-gray-50 dark:bg-[#050505] border border-gray-200 dark:border-white/10 p-3 text-sm focus:outline-none focus:border-red-600 transition-colors dark:text-white text-gray-900" />
+                  className="w-full bg-gray-50 dark:bg-[#050505] border border-gray-200 dark:border-white/10 p-3 text-sm focus:outline-none focus:border-purple-600 transition-colors dark:text-white text-gray-900" />
               </div>
               <div>
                 <label className="block text-xs font-bold uppercase text-gray-500 dark:text-gray-400 mb-2">Program of Interest</label>
                 <input type="text" value={vehicleName} onChange={e => setProgramName(e.target.value)} placeholder="e.g. AI Masterclass"
-                  className="w-full bg-gray-50 dark:bg-[#050505] border border-gray-200 dark:border-white/10 p-3 text-sm focus:outline-none focus:border-red-600 transition-colors dark:text-white text-gray-900" />
+                  className="w-full bg-gray-50 dark:bg-[#050505] border border-gray-200 dark:border-white/10 p-3 text-sm focus:outline-none focus:border-purple-600 transition-colors dark:text-white text-gray-900" />
               </div>
             </div>
             <div>
               <label className="block text-xs font-bold uppercase text-gray-500 dark:text-gray-400 mb-2">Call Context (Optional)</label>
               <textarea rows={4} value={context} onChange={e => setContext(e.target.value)}
                 placeholder="E.g., Remind the customer about their scheduled AI Masterclass demo tomorrow at 10 AM."
-                className="w-full bg-gray-50 dark:bg-[#050505] border border-gray-200 dark:border-white/10 p-3 text-sm focus:outline-none focus:border-red-600 transition-colors resize-none dark:text-white text-gray-900"
+                className="w-full bg-gray-50 dark:bg-[#050505] border border-gray-200 dark:border-white/10 p-3 text-sm focus:outline-none focus:border-purple-600 transition-colors resize-none dark:text-white text-gray-900"
               />
             </div>
             <button type="submit" disabled={singleStatus === "loading"}
-              className="w-full py-4 bg-red-600 text-white font-bold uppercase tracking-wider text-sm hover:bg-red-600-dark transition-colors skew-x-[-10deg] flex justify-center items-center gap-2 disabled:opacity-50">
+              className="w-full py-4 bg-purple-600 text-white font-bold uppercase tracking-wider text-sm hover:bg-purple-600-dark transition-colors skew-x-[-10deg] flex justify-center items-center gap-2 disabled:opacity-50">
               <span className="skew-x-[10deg] flex items-center gap-2">
                 {singleStatus === "loading" ? <><Loader2 className="w-5 h-5 animate-spin" /> Initiating...</> : <><PhoneOutgoing className="w-5 h-5" /> Trigger AI Call</>}
               </span>
@@ -389,7 +389,7 @@ export default function OutboundTriggerPage() {
               </div>
             )}
             {singleStatus === "error" && (
-              <div className="p-4 bg-red-50 dark:bg-red-600/10 border border-red-200 dark:border-red-600/20 text-red-700 dark:text-red-600 text-sm flex items-start gap-3">
+              <div className="p-4 bg-red-50 dark:bg-purple-600/10 border border-red-200 dark:border-purple-600/20 text-red-700 dark:text-purple-600 text-sm flex items-start gap-3">
                 <AlertCircle className="w-5 h-5 shrink-0" /><p>{singleMessage}</p>
               </div>
             )}
@@ -406,15 +406,15 @@ export default function OutboundTriggerPage() {
             <h2 className="text-xl font-bold uppercase tracking-wide mb-6 pb-4 border-b border-gray-100 dark:border-white/5 text-gray-900 dark:text-white flex items-center justify-between">
               <span>Bulk Campaign</span>
               {bulkList.length > 0 && (
-                <span className="text-xs bg-red-600 text-white px-2 py-1 rounded-full">{bulkList.length} Rows loaded</span>
+                <span className="text-xs bg-purple-600 text-white px-2 py-1 rounded-full">{bulkList.length} Rows loaded</span>
               )}
             </h2>
 
             {bulkList.length === 0 ? (
               <div onClick={() => fileInputRef.current?.click()}
-                className="border-2 border-dashed border-gray-300 dark:border-white/10 p-8 text-center hover:border-red-600 dark:hover:border-red-600/50 transition-colors cursor-pointer group rounded-3xl bg-gray-50 dark:bg-transparent">
-                <div className="w-12 h-12 bg-gray-200 dark:bg-white/5 mx-auto mb-4 flex items-center justify-center rounded-full group-hover:bg-red-600/10 transition-colors">
-                  <FileUp className="w-5 h-5 text-gray-500 dark:text-gray-400 group-hover:text-red-600" />
+                className="border-2 border-dashed border-gray-300 dark:border-white/10 p-8 text-center hover:border-purple-600 dark:hover:border-purple-600/50 transition-colors cursor-pointer group rounded-3xl bg-gray-50 dark:bg-transparent">
+                <div className="w-12 h-12 bg-gray-200 dark:bg-white/5 mx-auto mb-4 flex items-center justify-center rounded-full group-hover:bg-purple-600/10 transition-colors">
+                  <FileUp className="w-5 h-5 text-gray-500 dark:text-gray-400 group-hover:text-purple-600" />
                 </div>
                 <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Click to upload CSV list</p>
                 <p className="text-xs text-gray-500">Columns: phone, customer_name, vehicle, context</p>
@@ -423,7 +423,7 @@ export default function OutboundTriggerPage() {
               <div className="border border-gray-200 dark:border-white/10 rounded-3xl bg-gray-50 dark:bg-[#050505] flex flex-col">
                 <div className="p-4 border-b border-gray-200 dark:border-white/10 flex justify-between items-center">
                   <h3 className="font-bold text-gray-900 dark:text-white uppercase tracking-wider text-sm">{bulkList.length} Contacts Ready</h3>
-                  <button onClick={() => setBulkList([])} className="text-xs font-bold uppercase text-gray-500 hover:text-red-600 transition-colors">
+                  <button onClick={() => setBulkList([])} className="text-xs font-bold uppercase text-gray-500 hover:text-purple-600 transition-colors">
                     Clear All
                   </button>
                 </div>
@@ -444,7 +444,7 @@ export default function OutboundTriggerPage() {
                             </div>
                           </div>
                           <button onClick={() => setBulkList(prev => prev.filter((_, i) => i !== index))}
-                            className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-600/10 rounded-2xl transition-colors">
+                            className="p-2 text-gray-400 hover:text-purple-600 hover:bg-purple-600/10 rounded-2xl transition-colors">
                             <X className="w-4 h-4" />
                           </button>
                         </li>
@@ -454,7 +454,7 @@ export default function OutboundTriggerPage() {
                 </div>
                 <div className="p-4 border-t border-gray-200 dark:border-white/10">
                   <button onClick={() => startCampaign(bulkList)} disabled={isStarting || campaign?.status === "running"}
-                    className="w-full py-3 bg-red-600 text-white font-bold uppercase tracking-wider text-xs hover:bg-[#cc0000] transition-colors flex justify-center items-center gap-2 shadow-md rounded-3xl disabled:opacity-50">
+                    className="w-full py-3 bg-purple-600 text-white font-bold uppercase tracking-wider text-xs hover:bg-[#cc0000] transition-colors flex justify-center items-center gap-2 shadow-md rounded-3xl disabled:opacity-50">
                     {isStarting ? <><Loader2 className="w-4 h-4 animate-spin" /> Starting...</> : <><Play className="w-4 h-4 fill-current" /> Start Sequential Campaign</>}
                   </button>
                   {campaign?.status === "running" && (
@@ -472,9 +472,9 @@ export default function OutboundTriggerPage() {
             </button>
           </div>
 
-          <div className="bg-red-600/5 border border-red-600/20 p-8 rounded-3xl relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/10 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700 pointer-events-none" />
-            <h3 className="text-xs font-black uppercase tracking-widest text-red-600 flex items-center gap-2 mb-3 relative z-10">
+          <div className="bg-purple-600/5 border border-purple-600/20 p-8 rounded-3xl relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-600/10 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700 pointer-events-none" />
+            <h3 className="text-xs font-black uppercase tracking-widest text-purple-600 flex items-center gap-2 mb-3 relative z-10">
               <AlertCircle className="w-4 h-4" /> Sequential Dialing
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium relative z-10">
@@ -497,7 +497,7 @@ export default function OutboundTriggerPage() {
                      <ArrowLeft className="w-5 h-5" />
                    </button>
                 ) : (
-                   <div className="w-9 h-9 rounded-full bg-red-50 dark:bg-red-900/20 flex items-center justify-center text-red-600">
+                   <div className="w-9 h-9 rounded-full bg-red-50 dark:bg-red-900/20 flex items-center justify-center text-purple-600">
                      <History className="w-5 h-5" />
                    </div>
                 )}
@@ -532,7 +532,7 @@ export default function OutboundTriggerPage() {
                            className="p-5 border border-gray-200 dark:border-white/10 rounded-xl bg-white dark:bg-zinc-900/50 flex flex-col md:flex-row md:items-center justify-between shadow-sm hover:border-red-500/50 hover:bg-red-50/50 dark:hover:bg-red-900/10 cursor-pointer transition-all group"
                          >
                            <div className="mb-4 md:mb-0">
-                             <div className="text-sm font-bold uppercase tracking-wider mb-1 flex items-center gap-2 group-hover:text-red-600 transition-colors">
+                             <div className="text-sm font-bold uppercase tracking-wider mb-1 flex items-center gap-2 group-hover:text-purple-600 transition-colors">
                                <CheckCircle2 className="w-4 h-4 text-green-500" />
                                CAMPAIGN COMPLETED
                              </div>
@@ -550,8 +550,8 @@ export default function OutboundTriggerPage() {
                                <div className="text-[10px] text-green-500/70 font-bold uppercase tracking-widest">Success</div>
                              </div>
                              <div className="text-center min-w-[60px]">
-                               <div className="text-xl font-black text-red-600">{failed}</div>
-                               <div className="text-[10px] text-red-600/70 font-bold uppercase tracking-widest">Failed</div>
+                               <div className="text-xl font-black text-purple-600">{failed}</div>
+                               <div className="text-[10px] text-purple-600/70 font-bold uppercase tracking-widest">Failed</div>
                              </div>
                            </div>
                          </div>

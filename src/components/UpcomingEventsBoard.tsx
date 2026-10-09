@@ -101,11 +101,11 @@ export function UpcomingEventsBoard({ data }: { data: any[] }) {
     <div className="bg-white dark:bg-black border border-gray-100 dark:border-white/5 rounded-3xl shadow-sm overflow-hidden flex flex-col group/board transition-all duration-500">
       {/* Header */}
       <div className="p-6 md:p-8 border-b border-gray-100 dark:border-white/5 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-red-600/5 to-transparent rounded-full blur-3xl -mr-48 -mt-48 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-600/5 to-transparent rounded-full blur-3xl -mr-48 -mt-48 pointer-events-none" />
         
         <div className="flex items-center gap-4 relative z-10">
-          <div className="w-12 h-12 rounded-2xl bg-gray-50 dark:bg-white/5 flex items-center justify-center group-hover/board:bg-red-600/10 transition-colors duration-500">
-            <Bell className="w-5 h-5 text-gray-400 group-hover/board:text-red-600 transition-colors duration-500" />
+          <div className="w-12 h-12 rounded-2xl bg-gray-50 dark:bg-white/5 flex items-center justify-center group-hover/board:bg-purple-600/10 transition-colors duration-500">
+            <Bell className="w-5 h-5 text-gray-400 group-hover/board:text-purple-600 transition-colors duration-500" />
           </div>
           <div>
             <h2 className="text-xl font-bold uppercase tracking-widest text-gray-900 dark:text-white">Notice Board</h2>
@@ -117,19 +117,19 @@ export function UpcomingEventsBoard({ data }: { data: any[] }) {
         <div className="flex bg-gray-50 dark:bg-black/50 p-1.5 rounded-xl border border-gray-100 dark:border-white/5 relative z-10 backdrop-blur-xl overflow-x-auto max-w-full hide-scrollbar snap-x">
           <button 
             onClick={() => setSelectedDate("today")}
-            className={`px-5 py-2 text-[10px] font-extrabold uppercase tracking-widest rounded-lg transition-all duration-300 ${selectedDate === "today" ? "bg-white dark:bg-[#222] text-red-600 shadow-sm" : "text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
+            className={`px-5 py-2 text-[10px] font-extrabold uppercase tracking-widest rounded-lg transition-all duration-300 ${selectedDate === "today" ? "bg-white dark:bg-[#222] text-purple-600 shadow-sm" : "text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
           >
             Today
           </button>
           <button 
             onClick={() => setSelectedDate("tomorrow")}
-            className={`px-5 py-2 text-[10px] font-extrabold uppercase tracking-widest rounded-lg transition-all duration-300 ${selectedDate === "tomorrow" ? "bg-white dark:bg-[#222] text-red-600 shadow-sm" : "text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
+            className={`px-5 py-2 text-[10px] font-extrabold uppercase tracking-widest rounded-lg transition-all duration-300 ${selectedDate === "tomorrow" ? "bg-white dark:bg-[#222] text-purple-600 shadow-sm" : "text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
           >
             Tomorrow
           </button>
           <button 
             onClick={() => setSelectedDate("all")}
-            className={`px-5 py-2 text-[10px] font-extrabold uppercase tracking-widest rounded-lg transition-all duration-300 ${selectedDate === "all" ? "bg-white dark:bg-[#222] text-red-600 shadow-sm" : "text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
+            className={`px-5 py-2 text-[10px] font-extrabold uppercase tracking-widest rounded-lg transition-all duration-300 ${selectedDate === "all" ? "bg-white dark:bg-[#222] text-purple-600 shadow-sm" : "text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
           >
             All
           </button>
@@ -140,7 +140,7 @@ export function UpcomingEventsBoard({ data }: { data: any[] }) {
               onChange={(e) => {
                 if (e.target.value) setSelectedDate(e.target.value);
               }}
-              className="bg-transparent text-gray-500 dark:text-gray-400 text-xs font-mono focus:outline-none focus:text-red-600 dark:focus:text-white [&::-webkit-calendar-picker-indicator]:opacity-50 dark:[&::-webkit-calendar-picker-indicator]:invert hover:[&::-webkit-calendar-picker-indicator]:opacity-100 transition-opacity cursor-pointer"
+              className="bg-transparent text-gray-500 dark:text-gray-400 text-xs font-mono focus:outline-none focus:text-purple-600 dark:focus:text-white [&::-webkit-calendar-picker-indicator]:opacity-50 dark:[&::-webkit-calendar-picker-indicator]:invert hover:[&::-webkit-calendar-picker-indicator]:opacity-100 transition-opacity cursor-pointer"
             />
           </div>
         </div>
@@ -160,7 +160,7 @@ export function UpcomingEventsBoard({ data }: { data: any[] }) {
               return (
               <div 
                 key={i} 
-                className={`group relative bg-white dark:bg-[#050505] border p-6 rounded-2xl transition-all duration-500 overflow-hidden ${over ? 'border-gray-200 dark:border-white/5 opacity-50 grayscale hover:opacity-100 hover:grayscale-0' : 'border-gray-100 dark:border-white/5 hover:border-red-600/30 hover:shadow-xl hover:-translate-y-1'}`}
+                className={`group relative bg-white dark:bg-[#050505] border p-6 rounded-2xl transition-all duration-500 overflow-hidden ${over ? 'border-gray-200 dark:border-white/5 opacity-50 grayscale hover:opacity-100 hover:grayscale-0' : 'border-gray-100 dark:border-white/5 hover:border-purple-600/30 hover:shadow-xl hover:-translate-y-1'}`}
               >
                 {/* Accent glow on hover */}
                 {!over && <div className={`absolute -bottom-10 -right-10 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-700 ${evt.type === 'service' ? 'bg-blue-500' : 'bg-green-500'}`} />}
@@ -198,7 +198,7 @@ export function UpcomingEventsBoard({ data }: { data: any[] }) {
                       <span className="text-[9px] uppercase tracking-widest">Date Over</span>
                     </div>
                   ) : (
-                    <div className="flex items-center gap-2 text-red-600">
+                    <div className="flex items-center gap-2 text-purple-600">
                       <Clock className="w-3.5 h-3.5" />
                       <span className="font-mono">{evt.time}</span>
                     </div>

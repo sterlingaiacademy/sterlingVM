@@ -80,7 +80,7 @@ export default async function DashboardOverview() {
           <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 font-medium">Live insights powered by your proprietary AI Voice Engine.</p>
         </div>
         <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
-          <Link href="/dashboard/pipeline" className="flex-1 md:flex-none justify-center flex items-center gap-2 px-4 md:px-5 py-3 md:py-2.5 bg-red-600 text-white hover:bg-red-600-dark transition-colors rounded-full text-xs font-bold uppercase tracking-widest shadow-lg hover:shadow-red-600/40 hover:-translate-y-0.5 transform duration-300">
+          <Link href="/dashboard/pipeline" className="flex-1 md:flex-none justify-center flex items-center gap-2 px-4 md:px-5 py-3 md:py-2.5 bg-purple-600 text-white hover:bg-purple-600-dark transition-colors rounded-full text-xs font-bold uppercase tracking-widest shadow-lg hover:shadow-purple-600/40 hover:-translate-y-0.5 transform duration-300">
             Pipeline
           </Link>
           <Link href="/dashboard/outbound" className="flex-1 md:flex-none justify-center flex items-center gap-2 px-4 md:px-5 py-3 md:py-2.5 bg-gray-900 dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors rounded-full text-xs font-bold uppercase tracking-widest shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform duration-300">
@@ -109,9 +109,9 @@ export default async function DashboardOverview() {
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
         <div className="group bg-white dark:bg-[#050505] border border-gray-100 dark:border-white/5 p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-500 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/5 rounded-full blur-3xl -mr-32 -mt-32 transition-transform group-hover:scale-150 duration-700" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/5 rounded-full blur-3xl -mr-32 -mt-32 transition-transform group-hover:scale-150 duration-700" />
           <h2 className="text-lg font-bold uppercase tracking-widest mb-8 text-gray-800 dark:text-gray-200 relative z-10 flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-red-600"></span>
+            <span className="w-2 h-2 rounded-full bg-purple-600"></span>
             Program Enquiries
           </h2>
           <div className="relative z-10">
@@ -137,15 +137,15 @@ export default async function DashboardOverview() {
 function StatCard({ title, value, icon: Icon, trend, isGood = false, delay = "0" }: any) {
   return (
     <div 
-      className="group relative bg-white dark:bg-[#050505] border border-gray-100 dark:border-white/5 p-6 rounded-3xl hover:border-red-600/30 dark:hover:border-red-600/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden cursor-default"
+      className="group relative bg-white dark:bg-[#050505] border border-gray-100 dark:border-white/5 p-6 rounded-3xl hover:border-purple-600/30 dark:hover:border-purple-600/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden cursor-default"
       style={{ animationDelay: `${delay}ms` }}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-red-600/0 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/0 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
       <div className="flex justify-between items-start mb-6 relative z-10">
         <h3 className="text-[10px] font-extrabold uppercase tracking-widest text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">{title}</h3>
-        <div className="w-8 h-8 rounded-full bg-gray-50 dark:bg-white/5 flex items-center justify-center group-hover:bg-red-600/10 group-hover:scale-110 transition-all duration-300">
-          <Icon className="w-4 h-4 text-gray-400 group-hover:text-red-600 transition-colors" />
+        <div className="w-8 h-8 rounded-full bg-gray-50 dark:bg-white/5 flex items-center justify-center group-hover:bg-purple-600/10 group-hover:scale-110 transition-all duration-300">
+          <Icon className="w-4 h-4 text-gray-400 group-hover:text-purple-600 transition-colors" />
         </div>
       </div>
       

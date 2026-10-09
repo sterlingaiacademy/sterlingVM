@@ -105,11 +105,11 @@ export default function ConfigPage() {
           
           {/* Dashboard Credentials Settings */}
           <div className="group bg-white dark:bg-[#050505] border border-gray-100 dark:border-white/5 p-6 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-500 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-64 h-64 bg-red-600/5 rounded-full blur-3xl -ml-32 -mt-32 transition-transform group-hover:scale-150 duration-700 pointer-events-none" />
+            <div className="absolute top-0 left-0 w-64 h-64 bg-purple-600/5 rounded-full blur-3xl -ml-32 -mt-32 transition-transform group-hover:scale-150 duration-700 pointer-events-none" />
             
             <h2 className="text-xl font-bold uppercase tracking-widest mb-8 text-gray-800 dark:text-gray-200 flex items-center gap-3 relative z-10">
-              <div className="w-10 h-10 rounded-2xl bg-red-600/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <ShieldCheck className="w-5 h-5 text-red-600" />
+              <div className="w-10 h-10 rounded-2xl bg-purple-600/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <ShieldCheck className="w-5 h-5 text-purple-600" />
               </div>
               <span>Admin Credentials</span>
             </h2>
@@ -124,7 +124,7 @@ export default function ConfigPage() {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     placeholder="Enter new username"
-                    className="w-full bg-gray-50 dark:bg-black/50 border border-gray-200 dark:border-white/10 py-2.5 pl-11 pr-4 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-red-600/50 focus:border-red-600 transition-all duration-300"
+                    className="w-full bg-gray-50 dark:bg-black/50 border border-gray-200 dark:border-white/10 py-2.5 pl-11 pr-4 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-600/50 focus:border-purple-600 transition-all duration-300"
                   />
                 </div>
               </div>
@@ -138,7 +138,7 @@ export default function ConfigPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter new password"
-                    className="w-full bg-gray-50 dark:bg-black/50 border border-gray-200 dark:border-white/10 py-2.5 pl-11 pr-4 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-red-600/50 focus:border-red-600 transition-all duration-300"
+                    className="w-full bg-gray-50 dark:bg-black/50 border border-gray-200 dark:border-white/10 py-2.5 pl-11 pr-4 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-600/50 focus:border-purple-600 transition-all duration-300"
                   />
                 </div>
               </div>
@@ -152,7 +152,7 @@ export default function ConfigPage() {
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder="Confirm new password"
-                    className="w-full bg-gray-50 dark:bg-black/50 border border-gray-200 dark:border-white/10 py-2.5 pl-11 pr-4 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-red-600/50 focus:border-red-600 transition-all duration-300"
+                    className="w-full bg-gray-50 dark:bg-black/50 border border-gray-200 dark:border-white/10 py-2.5 pl-11 pr-4 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-600/50 focus:border-purple-600 transition-all duration-300"
                   />
                 </div>
               </div>
@@ -161,7 +161,7 @@ export default function ConfigPage() {
                 <button 
                   type="submit" 
                   disabled={status === 'loading'}
-                  className="w-full py-3 bg-red-600 hover:bg-red-600-dark text-white font-extrabold uppercase tracking-widest text-sm transition-all duration-300 flex justify-center items-center gap-3 rounded-2xl shadow-lg hover:shadow-red-600/40 hover:-translate-y-1 active:scale-95 disabled:opacity-50 disabled:hover:-translate-y-0 disabled:hover:shadow-none"
+                  className="w-full py-3 bg-purple-600 hover:bg-purple-600-dark text-white font-extrabold uppercase tracking-widest text-sm transition-all duration-300 flex justify-center items-center gap-3 rounded-2xl shadow-lg hover:shadow-purple-600/40 hover:-translate-y-1 active:scale-95 disabled:opacity-50 disabled:hover:-translate-y-0 disabled:hover:shadow-none"
                 >
                   {status === 'loading' ? (
                     <><Loader2 className="w-5 h-5 animate-spin" /> Saving Changes...</>
@@ -179,7 +179,7 @@ export default function ConfigPage() {
               )}
               
               {status === 'error' && (
-                <div className="p-4 rounded-xl text-sm font-medium bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-400 border border-red-500/20 flex items-start gap-3 mt-4 animate-pop">
+                <div className="p-4 rounded-xl text-sm font-medium bg-red-50 text-purple-600 dark:bg-red-500/10 dark:text-red-400 border border-red-500/20 flex items-start gap-3 mt-4 animate-pop">
                   <AlertCircle className="w-5 h-5 shrink-0" />
                   <p>{message}</p>
                 </div>
@@ -223,21 +223,21 @@ export default function ConfigPage() {
                 </button>
               </div>
               {sysStatus === 'success' && <div className="p-4 rounded-xl text-sm font-medium bg-green-50 text-green-600 dark:bg-green-500/10 dark:text-green-400 border border-green-500/20 flex items-start gap-3 mt-4"><CheckCircle2 className="w-5 h-5 shrink-0" /><p>{sysMessage}</p></div>}
-              {sysStatus === 'error' && <div className="p-4 rounded-xl text-sm font-medium bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-400 border border-red-500/20 flex items-start gap-3 mt-4"><AlertCircle className="w-5 h-5 shrink-0" /><p>{sysMessage}</p></div>}
+              {sysStatus === 'error' && <div className="p-4 rounded-xl text-sm font-medium bg-red-50 text-purple-600 dark:bg-red-500/10 dark:text-red-400 border border-red-500/20 flex items-start gap-3 mt-4"><AlertCircle className="w-5 h-5 shrink-0" /><p>{sysMessage}</p></div>}
             </form>
           </div>
         </div>
 
         <div className="space-y-8 animate-fade-up" style={{ animationDelay: '200ms' }}>
           {/* Agent Settings Note */}
-          <div className="bg-red-600/5 border border-red-600/20 p-6 rounded-3xl relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/10 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700 pointer-events-none" />
+          <div className="bg-purple-600/5 border border-purple-600/20 p-6 rounded-3xl relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-600/10 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700 pointer-events-none" />
             
             <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500 transform group-hover:rotate-12 pointer-events-none">
-              <Bot className="w-32 h-32 text-red-600" />
+              <Bot className="w-32 h-32 text-purple-600" />
             </div>
 
-            <h3 className="text-xs font-black uppercase tracking-widest text-red-600 flex items-center gap-2 mb-3 relative z-10">
+            <h3 className="text-xs font-black uppercase tracking-widest text-purple-600 flex items-center gap-2 mb-3 relative z-10">
               <Settings className="w-4 h-4 animate-[spin_4s_linear_infinite]" />
               AI Behavior Profile
             </h3>

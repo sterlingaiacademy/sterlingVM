@@ -66,7 +66,7 @@ export function TranscriptsListClient({
         <div className="p-4 border-b border-gray-200 dark:border-white/10 shrink-0 bg-gray-50 dark:bg-white/5">
           <h2 className="text-xl font-bold uppercase tracking-tight mb-4 flex items-center justify-between gap-2">
             <span className="flex items-center gap-2">
-              <Mic className="w-5 h-5 text-red-600" />
+              <Mic className="w-5 h-5 text-purple-600" />
               Raw Transcripts
             </span>
             <button
@@ -93,14 +93,14 @@ export function TranscriptsListClient({
                 placeholder="Search summaries or IDs..." 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-white dark:bg-[#050505] border border-gray-200 dark:border-white/10 py-2 pl-9 pr-3 text-sm focus:outline-none focus:border-red-600 transition-colors rounded-3xl transition-all duration-500"
+                className="w-full bg-white dark:bg-[#050505] border border-gray-200 dark:border-white/10 py-2 pl-9 pr-3 text-sm focus:outline-none focus:border-purple-600 transition-colors rounded-3xl transition-all duration-500"
               />
             </div>
             <div className="flex gap-2">
               <select 
                 value={filterStatus}
                 onChange={(e) => setFilterStatus(e.target.value as any)}
-                className="flex-1 bg-white dark:bg-[#050505] border border-gray-200 dark:border-white/10 py-1.5 px-2 text-xs focus:outline-none focus:border-red-600 rounded-3xl transition-all duration-500"
+                className="flex-1 bg-white dark:bg-[#050505] border border-gray-200 dark:border-white/10 py-1.5 px-2 text-xs focus:outline-none focus:border-purple-600 rounded-3xl transition-all duration-500"
               >
                 <option value="all">All Status</option>
                 <option value="success">Successful</option>
@@ -109,7 +109,7 @@ export function TranscriptsListClient({
               <select 
                 value={sortOrder}
                 onChange={(e) => setSortOrder(e.target.value as any)}
-                className="flex-1 bg-white dark:bg-[#050505] border border-gray-200 dark:border-white/10 py-1.5 px-2 text-xs focus:outline-none focus:border-red-600 rounded-3xl transition-all duration-500"
+                className="flex-1 bg-white dark:bg-[#050505] border border-gray-200 dark:border-white/10 py-1.5 px-2 text-xs focus:outline-none focus:border-purple-600 rounded-3xl transition-all duration-500"
               >
                 <option value="newest">Newest First</option>
                 <option value="oldest">Oldest First</option>
@@ -132,7 +132,7 @@ export function TranscriptsListClient({
               <Link 
                 key={conv.conversation_id}
                 href={`/dashboard/transcripts?id=${conv.conversation_id}`}
-                className={`block p-4 border-b border-gray-100 dark:border-white/5 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors ${isSelected ? 'bg-red-600/5 dark:bg-red-600/10 border-l-2 border-l-red-600' : 'border-l-2 border-l-transparent'}`}
+                className={`block p-4 border-b border-gray-100 dark:border-white/5 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors ${isSelected ? 'bg-purple-600/5 dark:bg-purple-600/10 border-l-2 border-l-purple-600' : 'border-l-2 border-l-transparent'}`}
               >
                 <div className="flex justify-between items-start mb-1">
                   <div className="text-sm font-bold text-gray-900 dark:text-gray-100 truncate pr-2">
@@ -201,7 +201,7 @@ export function TranscriptsListClient({
                     <div className={`p-4 rounded-3xl transition-all duration-500 max-w-[85%] text-sm leading-relaxed shadow-sm ${
                       isAgent 
                         ? 'bg-gray-100 dark:bg-[#050505] text-gray-900 dark:text-gray-100' 
-                        : 'bg-red-600 text-white'
+                        : 'bg-purple-600 text-white'
                     }`}>
                       {turn.message || <span className="italic opacity-50">No audio detected</span>}
                     </div>

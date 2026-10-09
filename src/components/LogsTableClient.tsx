@@ -107,7 +107,7 @@ export function LogsTableClient({ initialLogs, error }: { initialLogs: any[], er
           <button 
             onClick={handleExport}
             disabled={filteredLogs.length === 0}
-            className="flex-1 sm:flex-none justify-center flex items-center gap-2 px-4 py-3 md:py-2 bg-red-600 text-white hover:bg-red-600-dark disabled:opacity-50 transition-colors border border-transparent text-sm font-bold uppercase tracking-widest"
+            className="flex-1 sm:flex-none justify-center flex items-center gap-2 px-4 py-3 md:py-2 bg-purple-600 text-white hover:bg-purple-600-dark disabled:opacity-50 transition-colors border border-transparent text-sm font-bold uppercase tracking-widest"
           >
             <Download className="w-4 h-4" /> Export
           </button>
@@ -128,7 +128,7 @@ export function LogsTableClient({ initialLogs, error }: { initialLogs: any[], er
       </header>
 
       {error ? (
-        <div className="mb-8 p-4 border-l-4 border-red-500 bg-red-500/10 text-red-600 dark:text-red-400 text-sm">
+        <div className="mb-8 p-4 border-l-4 border-red-500 bg-red-500/10 text-purple-600 dark:text-red-400 text-sm">
           <strong className="font-bold">Error Loading Data:</strong> {error}
         </div>
       ) : initialLogs.length === 0 ? (
@@ -150,14 +150,14 @@ export function LogsTableClient({ initialLogs, error }: { initialLogs: any[], er
               placeholder="Search by name, phone, vehicle, or enquiry..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white dark:bg-[#050505] border border-gray-200 dark:border-white/10 py-2.5 pl-10 pr-4 text-sm focus:outline-none focus:border-red-600 transition-colors rounded-sm"
+              className="w-full bg-white dark:bg-[#050505] border border-gray-200 dark:border-white/10 py-2.5 pl-10 pr-4 text-sm focus:outline-none focus:border-purple-600 transition-colors rounded-sm"
             />
           </div>
           <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
             <select 
               value={filterType} 
               onChange={(e) => setFilterType(e.target.value as any)}
-              className="w-full sm:w-auto bg-white dark:bg-[#050505] border border-gray-200 dark:border-white/10 py-3 md:py-2.5 px-3 text-sm focus:outline-none focus:border-red-600 transition-colors rounded-sm"
+              className="w-full sm:w-auto bg-white dark:bg-[#050505] border border-gray-200 dark:border-white/10 py-3 md:py-2.5 px-3 text-sm focus:outline-none focus:border-purple-600 transition-colors rounded-sm"
             >
               <option value="all">All Types</option>
               <option value="inbound">Inbound Only</option>
@@ -166,7 +166,7 @@ export function LogsTableClient({ initialLogs, error }: { initialLogs: any[], er
             <select 
               value={sortOrder} 
               onChange={(e) => setSortOrder(e.target.value as any)}
-              className="w-full sm:w-auto bg-white dark:bg-[#050505] border border-gray-200 dark:border-white/10 py-3 md:py-2.5 px-3 text-sm focus:outline-none focus:border-red-600 transition-colors rounded-sm"
+              className="w-full sm:w-auto bg-white dark:bg-[#050505] border border-gray-200 dark:border-white/10 py-3 md:py-2.5 px-3 text-sm focus:outline-none focus:border-purple-600 transition-colors rounded-sm"
             >
               <option value="newest">Newest First</option>
               <option value="oldest">Oldest First</option>
@@ -228,7 +228,7 @@ export function LogsTableClient({ initialLogs, error }: { initialLogs: any[], er
                         {log["Program of Interest"] || "-"}
                       </td>
                       <td className="p-4 text-sm">
-                        <span className="inline-block px-2 py-1 text-xs rounded-sm bg-red-600/10 text-red-600 font-semibold">
+                        <span className="inline-block px-2 py-1 text-xs rounded-sm bg-purple-600/10 text-purple-600 font-semibold">
                           {enquiry}
                         </span>
                       </td>

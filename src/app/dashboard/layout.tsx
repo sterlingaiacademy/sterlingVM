@@ -62,8 +62,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           {!isCollapsed && (
             <Link href="/" className="flex items-center overflow-hidden ml-2">
               <div className="flex flex-col">
-                <img src="/text_logo_black.png" alt="sterling Text" className="h-[40px] w-auto object-contain dark:hidden opacity-90 shrink-0" />
-                <img src="/text_logo_white.png" alt="sterling Text" className="h-[40px] w-auto object-contain hidden dark:block opacity-90 shrink-0" />
+                <div className="text-xl font-black tracking-widest text-black dark:text-white italic">STERLING<span className="text-purple-600">AI</span></div>
               </div>
             </Link>
           )}
@@ -92,7 +91,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                   "relative flex items-center transition-colors uppercase tracking-wide rounded-xl group",
                   isCollapsed ? "justify-center p-3" : "gap-3 px-4 py-3.5 md:py-3",
                   isActive 
-                    ? "bg-red-600/10 text-red-600" 
+                    ? "bg-purple-600/10 text-purple-600" 
                     : "text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
                 )}
               >
@@ -100,8 +99,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 {!isCollapsed && <span className="text-sm font-medium whitespace-nowrap">{item.label}</span>}
                 
                 {/* Active Indicator Line */}
-                {isActive && !isCollapsed && <div className="absolute right-0 top-0 bottom-0 w-1 bg-red-600 rounded-l-full" />}
-                {isActive && isCollapsed && <div className="absolute left-0 top-1/4 bottom-1/4 w-1 rounded-r-full bg-red-600" />}
+                {isActive && !isCollapsed && <div className="absolute right-0 top-0 bottom-0 w-1 bg-purple-600 rounded-l-full" />}
+                {isActive && isCollapsed && <div className="absolute left-0 top-1/4 bottom-1/4 w-1 rounded-r-full bg-purple-600" />}
                 
                 {/* Tooltip for collapsed state */}
                 {isCollapsed && (
@@ -159,8 +158,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               <Menu className="w-6 h-6" />
             </button>
             <Link href="/" className="flex items-center">
-               <img src="/text_logo_black.png" alt="sterling Text" className="h-[32px] w-auto object-contain dark:hidden opacity-90" />
-               <img src="/text_logo_white.png" alt="sterling Text" className="h-[32px] w-auto object-contain hidden dark:block opacity-90" />
+               <div className="text-xl font-black tracking-widest text-black dark:text-white italic">STERLING<span className="text-purple-600">AI</span></div>
             </Link>
           </div>
           <ThemeToggle />
@@ -174,6 +172,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     </div>
   );
 }
+
 
 
 
