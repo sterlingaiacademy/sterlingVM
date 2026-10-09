@@ -7,7 +7,7 @@ export const revalidate = 0;
 export default async function PipelinePage() {
   let logs: any[] = [];
   try {
-    const csvUrl = "https://docs.google.com/spreadsheets/d/1EuYUHCElFWq6AgsA-FWFGfnRCxQTOdKG_73725C0fXg/export?format=csv";
+    const csvUrl = "https://docs.google.com/spreadsheets/d/1lnhhffZuBuJKiMOaKcvnJ-aCA2p_22D9nC8GZ_hg5wc/export?format=csv";
     const res = await fetch(csvUrl, { cache: "no-store" });
     if (res.ok) {
       const csvText = await res.text();
