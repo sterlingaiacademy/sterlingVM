@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Calendar, Bell, User, Phone, MapPin, Clock, GraduationCap, AlertTriangle } from "lucide-react";
 
-export function UpcomingEventsBoard({ logs }: { logs: any[] }) {
+export function UpcomingEventsBoard({ data: logs }: { data: any[] }) {
   const [selectedDate, setSelectedDate] = useState<string>("today");
 
   const todayDate = new Date();
