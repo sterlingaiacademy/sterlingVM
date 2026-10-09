@@ -1,4 +1,8 @@
-import { NextResponse } from 'next/server';
+import os
+
+path = r'c:\anti\sterlingVM\src\app\api\meta\analytics\sync\route.ts'
+
+code = '''import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
 export async function POST() {
@@ -65,3 +69,6 @@ export async function POST() {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
+'''
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(code)
