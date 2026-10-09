@@ -1,4 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
+import os
+
+path = r'c:\anti\sterlingVM\src\app\api\meta\campaign\ig-push\route.ts'
+content = '''import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import fs from 'fs';
 import path from 'path';
@@ -80,3 +83,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: error.message || "Internal Server Error" }, { status: 500 });
   }
 }
+'''
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(content)
