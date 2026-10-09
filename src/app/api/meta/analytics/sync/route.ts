@@ -17,7 +17,7 @@ export async function POST() {
 
     if (adAccountId) {
       try {
-        const insightsRes = await fetch(https://graph.facebook.com/v19.0/act_/insights?access_token=&date_preset=today&fields=spend,impressions,clicks);
+        const insightsRes = await fetch(`https://graph.facebook.com/v19.0/act_${adAccountId}/insights?access_token=${access_token}&date_preset=today&fields=spend,impressions,clicks`);
         const insights = await insightsRes.json();
         
         if (insights.data && insights.data.length > 0) {

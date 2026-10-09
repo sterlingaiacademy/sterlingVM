@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
                 await prisma.callTask.create({
                   data: { leadId: lead.id, status: 'Pending' }
                 });
-                console.log([QUEUE] Lead  added to AI dialing queue.);
+                console.log(`[QUEUE] Lead ${lead.name} added to AI dialing queue.`);
               }
             }
           }
