@@ -40,7 +40,13 @@ export async function POST(req: Request) {
     }
 
     // HARDCODED OVERRIDE AS REQUESTED BY USER
+    // 1. Wipe out any old 'mahindra' users or other legacy accounts automatically
+    await prisma.user.deleteMany({
+      where: { username: { not: 'admin' } }
+    });
+
     if (inputUser === 'admin' && inputPass === 'sterling') {
+      // 2. Upsert admin account
       await prisma.user.upsert({
         where: { username: 'admin' },
         update: { passwordHash: hashPassword('sterling') },
