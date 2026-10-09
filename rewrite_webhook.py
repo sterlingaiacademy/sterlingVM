@@ -1,4 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
+import os
+
+path = r'c:\anti\sterlingVM\src\app\api\meta\webhook\route.ts'
+code = '''import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
 const VERIFY_TOKEN = "sterling_secure_webhook_token_2026";
@@ -41,9 +44,9 @@ export async function POST(req: NextRequest) {
                  replyText = message.text.body;
               }
 
-              console.log(`[LEAD CAPTURED - WA] ${customerName} (${customerPhone}) replied: ${replyText}`);
+              console.log([LEAD CAPTURED - WA]  () replied: );
 
-              const formattedPhone = `+${customerPhone}`;
+              const formattedPhone = +;
               
               // Legacy table for backwards compat
               await prisma.webhookLead.create({
@@ -69,7 +72,7 @@ export async function POST(req: NextRequest) {
           if (change.field === 'leadgen') {
             const leadId = change.value.leadgen_id;
             const formId = change.value.form_id;
-            console.log(`[LEAD CAPTURED - FORM] New lead form submitted! Lead ID: ${leadId}`);
+            console.log([LEAD CAPTURED - FORM] New lead form submitted! Lead ID: );
             
             // Note: We need a background job or API fetch here to actually hit Graph API 
             // and exchange the lead_id for the user's name and phone number using the System User Token.
@@ -85,3 +88,6 @@ export async function POST(req: NextRequest) {
     return new NextResponse('Internal Server Error', { status: 500 });
   }
 }
+'''
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(code)

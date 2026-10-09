@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, PhoneOutgoing, ScrollText, Settings, LogOut, PanelLeftClose, PanelLeft, Menu, X, Megaphone } from "lucide-react";
+import { LayoutDashboard, PhoneOutgoing, ScrollText, Settings, LogOut, PanelLeftClose, PanelLeft, Menu, X, Megaphone , BarChart3 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -24,6 +24,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     { label: "Raw Transcripts", href: "/dashboard/transcripts", icon: ScrollText },
     { label: "Outbound Trigger", href: "/dashboard/outbound", icon: PhoneOutgoing },
     { label: "Meta Campaigns", href: "/dashboard/campaigns", icon: Megaphone },
+    { label: "Meta Analytics", href: "/dashboard/analytics", icon: BarChart3 },
     { label: "Account Config", href: "/dashboard/config", icon: Settings },
   ];
 

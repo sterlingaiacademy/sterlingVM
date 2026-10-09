@@ -1,46 +1,10 @@
-generator client {
-  provider = "prisma-client-js"
-}
+import os
 
-datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
-}
+path = r'c:\anti\sterlingVM\prisma\schema.prisma'
+with open(path, 'r', encoding='utf-8') as f:
+    content = f.read()
 
-// System Users (Authentication)
-model User {
-  id           String   @id @default(cuid())
-  username     String   @unique
-  passwordHash String
-  role         String   @default("admin")
-  createdAt    DateTime @default(now())
-}
-
-// Key-Value store for system configuration (e.g. Meta Tokens)
-model SystemConfig {
-  key       String   @id
-  value     String
-  updatedAt DateTime @updatedAt
-}
-
-// Stores the Audience Groups (e.g. "October Leads")
-model Audience {
-  id        String   @id @default(cuid())
-  name      String
-  numbers   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
-// Stores the incoming leads who clicked the WhatsApp buttons
-model WebhookLead {
-  id        String   @id @default(cuid())
-  name      String
-  phone     String
-  status    String
-  time      DateTime @default(now())
-}
-
+new_models = '''
 // Master CRM Lead representing the full funnel
 model Lead {
   id              String   @id @default(cuid())
@@ -84,3 +48,9 @@ model MetaAnalytics {
   igEngagement  Int      @default(0)
   updatedAt     DateTime @updatedAt
 }
+'''
+
+content = content + new_models
+
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(content)
