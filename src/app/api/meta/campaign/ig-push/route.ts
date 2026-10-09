@@ -35,12 +35,12 @@ export async function POST(req: NextRequest) {
           fs.mkdirSync(uploadDir, { recursive: true });
         }
         
-        const fileName = ig_temp_.jpg;
+        const fileName = `ig_temp_${Date.now()}.jpg`;
         fs.writeFileSync(path.join(uploadDir, fileName), buffer);
         
         // Construct the public URL using the request origin
-        const origin = req.headers.get('origin') || http://;
-        publicUrl = ${origin}/uploads/;
+        const origin = req.headers.get('origin') || `http://${req.headers.get('host')}`;
+        publicUrl = `${origin}/uploads/${fileName}`;
       }
     }
 
@@ -49,25 +49,25 @@ export async function POST(req: NextRequest) {
     }
 
     // 1. Create Media Container
-    const containerRes = await fetch(https://graph.facebook.com/v19.0//media?image_url=&caption=&access_token=, {
+    const containerRes = await fetch(`https://graph.facebook.com/v19.0/${igAccountId}/media?image_url=${encodeURIComponent(publicUrl)}&caption=${encodeURIComponent(caption || '')}&access_token=${access_token}`, {
       method: 'POST'
     });
     const containerData = await containerRes.json();
 
     if (containerData.error) {
-      return NextResponse.json({ error: Meta API Error:  }, { status: 400 });
+      return NextResponse.json({ error: `Meta API Error: ${containerData.error.message}` }, { status: 400 });
     }
 
     const creationId = containerData.id;
 
     // 2. Publish the Container
-    const publishRes = await fetch(https://graph.facebook.com/v19.0//media_publish?creation_id=&access_token=, {
+    const publishRes = await fetch(`https://graph.facebook.com/v19.0/${igAccountId}/media_publish?creation_id=${creationId}&access_token=${access_token}`, {
       method: 'POST'
     });
     const publishData = await publishRes.json();
 
     if (publishData.error) {
-      return NextResponse.json({ error: Publish Error:  }, { status: 400 });
+      return NextResponse.json({ error: `Publish Error: ${publishData.error.message}` }, { status: 400 });
     }
 
     return NextResponse.json({ 
