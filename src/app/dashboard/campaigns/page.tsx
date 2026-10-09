@@ -259,7 +259,17 @@ export default function CampaignsPage() {
         const res = await fetch('/api/meta/campaign/push', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ phoneNumbers, adBody, adFooter, buttonText, buttonUrl, imageBlob })
+          body: JSON.stringify({ 
+            phoneNumbers, 
+            adBody, 
+            adFooter, 
+            buttonText, 
+            buttonUrl, 
+            imageBlob,
+            useTemplate,
+            templateName,
+            templateLang
+          })
         });
         const data = await res.json();
         if (res.ok) showToast(data.message, "success");
