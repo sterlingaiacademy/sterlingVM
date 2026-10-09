@@ -484,17 +484,70 @@ export default function CampaignsPage() {
 
             {platform === 'whatsapp' ? (
               <>
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">MESSAGE BODY</label>
-                  <textarea value={adBody} onChange={e => setAdBody(e.target.value)} rows={4} className="bg-white dark:bg-black border border-gray-300 dark:border-zinc-800 rounded-lg p-3 outline-none focus:border-purple-600 transition-colors resize-none shadow-sm" />
+                <div className="flex items-center gap-4 bg-gray-50 dark:bg-black/30 p-1.5 rounded-lg mb-6 border border-gray-100 dark:border-zinc-800 w-max shadow-inner">
+                  <button 
+                    onClick={() => setUseTemplate(false)}
+                    className={`px-4 py-2 rounded-md text-xs font-bold uppercase tracking-widest transition-all ${!useTemplate ? 'bg-white dark:bg-zinc-800 shadow-sm text-gray-900 dark:text-white border border-gray-200 dark:border-zinc-700' : 'text-gray-400 hover:text-gray-600 dark:hover:text-gray-300'}`}
+                  >
+                    Standard Message
+                  </button>
+                  <button 
+                    onClick={() => setUseTemplate(true)}
+                    className={`px-4 py-2 rounded-md text-xs font-bold uppercase tracking-widest transition-all flex items-center gap-2 ${useTemplate ? 'bg-white dark:bg-purple-600 shadow-sm text-gray-900 dark:text-white border border-gray-200 dark:border-purple-500' : 'text-gray-400 hover:text-gray-600 dark:hover:text-gray-300'}`}
+                  >
+                    Template Mode
+                    <span className="bg-purple-100 text-purple-600 dark:bg-black/50 dark:text-purple-300 px-2 py-0.5 rounded-full text-[9px]">PRO</span>
+                  </button>
                 </div>
-                <div className="p-5 bg-gray-50 dark:bg-black border border-gray-200 dark:border-zinc-800 rounded-xl space-y-4">
-                  <div className="flex items-center gap-2 mb-2"><Share2 className="w-4 h-4 text-gray-400 dark:text-zinc-500" /><h3 className="font-bold text-sm text-gray-600 dark:text-zinc-400 uppercase">INTERACTIVE CTA BUTTON</h3></div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div><label className="text-xs font-bold text-gray-500 mb-1 block">Button Text</label><input type="text" value={buttonText} onChange={e => setButtonText(e.target.value)} className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-lg p-3 text-sm outline-none" /></div>
-                    <div><label className="text-xs font-bold text-gray-500 mb-1 block">Redirect URL</label><input type="text" value={buttonUrl} onChange={e => setButtonUrl(e.target.value)} className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-lg p-3 text-sm outline-none" /></div>
+
+                {useTemplate ? (
+                  <div className="mb-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
+                    <div className="bg-purple-50 dark:bg-purple-900/10 border border-purple-100 dark:border-purple-500/20 p-6 rounded-2xl shadow-sm">
+                      <h4 className="text-xs font-black uppercase tracking-widest text-purple-600 dark:text-purple-400 mb-4 flex items-center gap-2">
+                        Template Configuration
+                      </h4>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">Template Name</label>
+                          <input 
+                            type="text" 
+                            value={templateName}
+                            onChange={(e) => setTemplateName(e.target.value)}
+                            placeholder="e.g. course_registration" 
+                            className="w-full bg-white dark:bg-[#050505] border border-gray-200 dark:border-zinc-800 py-3 px-4 rounded-xl text-sm focus:outline-none focus:border-purple-600 focus:ring-1 focus:ring-purple-600 transition-colors shadow-sm"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">Language Code</label>
+                          <input 
+                            type="text" 
+                            value={templateLang}
+                            onChange={(e) => setTemplateLang(e.target.value)}
+                            placeholder="e.g. en" 
+                            className="w-full bg-white dark:bg-[#050505] border border-gray-200 dark:border-zinc-800 py-3 px-4 rounded-xl text-sm focus:outline-none focus:border-purple-600 focus:ring-1 focus:ring-purple-600 transition-colors shadow-sm"
+                          />
+                        </div>
+                      </div>
+                      <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-4 leading-relaxed font-medium">
+                        Enter the exact name of the approved template from your Meta WhatsApp Manager. If your template has a media header, upload your image/video in the banner box above! The template's text and buttons are pulled securely from Meta.
+                      </p>
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <>
+                    <div className="flex flex-col gap-2">
+                      <label className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">MESSAGE BODY</label>
+                      <textarea value={adBody} onChange={e => setAdBody(e.target.value)} rows={4} className="bg-white dark:bg-black border border-gray-300 dark:border-zinc-800 rounded-lg p-3 outline-none focus:border-purple-600 transition-colors resize-none shadow-sm" />
+                    </div>
+                    <div className="p-5 bg-gray-50 dark:bg-black border border-gray-200 dark:border-zinc-800 rounded-xl space-y-4">
+                      <div className="flex items-center gap-2 mb-2"><Share2 className="w-4 h-4 text-gray-400 dark:text-zinc-500" /><h3 className="font-bold text-sm text-gray-600 dark:text-zinc-400 uppercase">INTERACTIVE CTA BUTTON</h3></div>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div><label className="text-xs font-bold text-gray-500 mb-1 block">Button Text</label><input type="text" value={buttonText} onChange={e => setButtonText(e.target.value)} className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-lg p-3 text-sm outline-none" /></div>
+                        <div><label className="text-xs font-bold text-gray-500 mb-1 block">Redirect URL</label><input type="text" value={buttonUrl} onChange={e => setButtonUrl(e.target.value)} className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-lg p-3 text-sm outline-none" /></div>
+                      </div>
+                    </div>
+                  </>
+                )}
               </>
             ) : (
               <div className="flex flex-col gap-2">
