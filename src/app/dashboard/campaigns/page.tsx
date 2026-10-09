@@ -25,11 +25,11 @@ export default function CampaignsPage() {
   // WhatsApp State
   const [adBody, setAdBody] = useState("Hi there! Discover our latest models and book a demo today.");
   const [adFooter, setAdFooter] = useState("");
-  const [buttonText, setButtonText] = useState("Book Demo");
-  const [buttonUrl, setButtonUrl] = useState("https://sterling.com/test-drive");
+  const [buttonText, setButtonText] = useState("Enroll Now");
+  const [buttonUrl, setButtonUrl] = useState("https://sterlingaiacademy.com/enroll");
   
   // Instagram State
-  const [igCaption, setIgCaption] = useState("Experience the extraordinary. \n\n#sterling #SUV #Explore");
+  const [igCaption, setIgCaption] = useState("Experience the extraordinary. \n\n#sterlingAI #Education #Future");
   
   // Shared Media
   const [imageBlob, setImageBlob] = useState<string | null>(null);
@@ -85,8 +85,8 @@ export default function CampaignsPage() {
     setPlatform(draft.platform || 'whatsapp');
     setAdBody(draft.adBody || "");
     setAdFooter(draft.adFooter || "");
-    setButtonText(draft.buttonText || "Book Demo");
-    setButtonUrl(draft.buttonUrl || "https://sterling.com/test-drive");
+    setButtonText(draft.buttonText || "Enroll Now");
+    setButtonUrl(draft.buttonUrl || "https://sterlingaiacademy.com/enroll");
     setIgCaption(draft.igCaption || "");
     setImageBlob(draft.imageBlob || null);
     setCurrentDraftId(draft.id);
@@ -517,7 +517,7 @@ export default function CampaignsPage() {
                 <>
                   <div className="bg-[#005c4b] pt-12 pb-4 px-4 flex items-center gap-3">
                     <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center"><Share2 className="w-5 h-5 text-white" /></div>
-                    <div><h4 className="font-bold text-white text-sm">sterling PPS Motors</h4><p className="text-xs text-white/70">Verified Business</p></div>
+                    <div><h4 className="font-bold text-white text-sm">Sterling AI Academy</h4><p className="text-xs text-white/70">Verified Business</p></div>
                   </div>
                   <div className="p-4 h-[500px] overflow-y-auto bg-[#efeae2] dark:bg-[#0b141a]">
                     <div className="bg-white dark:bg-[#202c33] rounded-lg p-1 max-w-[90%] shadow-md">
@@ -542,7 +542,7 @@ export default function CampaignsPage() {
                 <>
                   <div className="bg-white dark:bg-black pt-12 pb-3 px-4 flex items-center gap-3 border-b border-gray-200 dark:border-zinc-800">
                     <div className="w-8 h-8 bg-gray-200 dark:bg-zinc-800 rounded-full"></div>
-                    <div><h4 className="font-bold text-gray-900 dark:text-white text-sm">sterling_pps</h4></div>
+                    <div><h4 className="font-bold text-gray-900 dark:text-white text-sm">sterling_ai_academy</h4></div>
                   </div>
                   <div className="bg-white dark:bg-black h-[500px] overflow-y-auto pb-8">
                     {imageBlob ? (
@@ -551,7 +551,7 @@ export default function CampaignsPage() {
                       <div className="w-full aspect-square bg-gray-100 dark:bg-zinc-900 flex items-center justify-center"><FileImage className="w-12 h-12 text-gray-300 dark:text-zinc-800" /></div>
                     )}
                     <div className="p-3">
-                      <p className="text-gray-800 dark:text-white text-sm"><span className="font-bold mr-2 text-gray-900 dark:text-white">sterling_pps</span><span className="whitespace-pre-wrap">{igCaption}</span></p>
+                      <p className="text-gray-800 dark:text-white text-sm"><span className="font-bold mr-2 text-gray-900 dark:text-white">sterling_ai_academy</span><span className="whitespace-pre-wrap">{igCaption}</span></p>
                     </div>
                   </div>
                 </>

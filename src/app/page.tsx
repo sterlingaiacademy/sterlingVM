@@ -58,8 +58,8 @@ export default function LandingPage() {
       }`}>
         <div className="flex items-center gap-3 pointer-events-auto">
           {/* Always white when at top. When scrolled, hide in light mode, show in dark mode */}
-          <div className="text-2xl font-black tracking-widest text-white italic">STERLING<span className="text-purple-500">AI</span></div>
-          <div className="text-2xl font-black tracking-widest text-white italic">STERLING<span className="text-purple-500">AI</span></div>
+          <img src="/emblem.png" alt="Sterling Emblem" className="h-[60px] md:h-[85px] w-auto object-contain drop-shadow-md" />
+          <img src="/emblem.png" alt="Sterling Emblem" className="h-[60px] md:h-[85px] w-auto object-contain drop-shadow-md" />
         </div>
 
         <div className="flex items-center gap-4 md:gap-6 pointer-events-auto">

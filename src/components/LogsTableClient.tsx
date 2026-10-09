@@ -41,8 +41,8 @@ export function LogsTableClient({ initialLogs, error }: { initialLogs: any[], er
       result = result.filter(log => 
         (log["Customer Name"] || "").toLowerCase().includes(q) ||
         (log["Phone Number"] || "").toLowerCase().includes(q) ||
-        (log["Program of Interest"] || "").toLowerCase().includes(q) ||
-        (log["Enquiry Type"] || "").toLowerCase().includes(q)
+        (log["Course"] || "").toLowerCase().includes(q) ||
+        (log["Enquiry Summary"] || "").toLowerCase().includes(q)
       );
     }
 
@@ -181,9 +181,9 @@ export function LogsTableClient({ initialLogs, error }: { initialLogs: any[], er
                 <th className="p-4 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Date</th>
                 <th className="p-4 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Direction</th>
                 <th className="p-4 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Customer Details</th>
-                <th className="p-4 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Program</th>
-                <th className="p-4 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Enquiry</th>
-                <th className="p-4 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Service/Visit</th>
+                <th className="p-4 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Course / Dept</th>
+                <th className="p-4 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Summary</th>
+                <th className="p-4 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Final Response</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 dark:divide-white/5">
@@ -201,7 +201,7 @@ export function LogsTableClient({ initialLogs, error }: { initialLogs: any[], er
                     } catch (e) {}
                   }
               
-                  let enquiry = log["Enquiry Type"] || "-";
+                  let enquiry = log["Enquiry Summary"] || "-";
                   if (enquiry !== "-") enquiry = enquiry.charAt(0).toUpperCase() + enquiry.slice(1).toLowerCase();
 
                   let direction = log["Direction"] || log["Type"] || log["Call Type"] || "Inbound";
@@ -225,7 +225,7 @@ export function LogsTableClient({ initialLogs, error }: { initialLogs: any[], er
                         </div>
                       </td>
                       <td className="p-4 text-sm font-bold text-gray-800 dark:text-gray-200 uppercase tracking-wide">
-                        {log["Program of Interest"] || "-"}
+                        {log["Course"] || "-"} <div className="text-[10px] text-gray-500">{log["Dept"] || ""}</div>
                       </td>
                       <td className="p-4 text-sm">
                         <span className="inline-block px-2 py-1 text-xs rounded-sm bg-purple-600/10 text-purple-600 font-semibold">

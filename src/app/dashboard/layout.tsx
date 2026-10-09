@@ -62,7 +62,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           {!isCollapsed && (
             <Link href="/" className="flex items-center overflow-hidden ml-2">
               <div className="flex flex-col">
-                <div className="text-xl font-black tracking-widest text-black dark:text-white italic">STERLING<span className="text-purple-600">AI</span></div>
+                <img src="/text_logo_black.png" alt="Sterling Text" className="h-[40px] w-auto object-contain dark:hidden opacity-90 shrink-0" />
+                <img src="/text_logo_white.png" alt="Sterling Text" className="h-[40px] w-auto object-contain hidden dark:block opacity-90 shrink-0" />
               </div>
             </Link>
           )}
@@ -158,7 +159,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               <Menu className="w-6 h-6" />
             </button>
             <Link href="/" className="flex items-center">
-               <div className="text-xl font-black tracking-widest text-black dark:text-white italic">STERLING<span className="text-purple-600">AI</span></div>
+               <img src="/text_logo_black.png" alt="Sterling Text" className="h-[40px] w-auto object-contain dark:hidden opacity-90 shrink-0" />
+                <img src="/text_logo_white.png" alt="Sterling Text" className="h-[40px] w-auto object-contain hidden dark:block opacity-90 shrink-0" />
             </Link>
           </div>
           <ThemeToggle />

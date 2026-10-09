@@ -213,7 +213,7 @@ export default function OutboundTriggerPage() {
 
   // ── Download template ──
   const downloadTemplate = () => {
-    const template = "phone,customer_name,vehicle,context\n+919876543210,Rahul Menon,AI Masterclass,Service Reminder for 10 AM tomorrow\n+918765432109,Priya Nair,Scorpio,Follow up on demo enquiry\n";
+    const template = "phone,customer_name,vehicle,context\n+919876543210,Rahul Menon,AI Masterclass,Reminder for consultation at 10 AM tomorrow\n+918765432109,Priya Nair,Data Science Bootcamp,Follow up on enrollment enquiry\n";
     const blob = new Blob([template], { type: "text/csv" });
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement("a");

@@ -2,16 +2,16 @@
 
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from "recharts";
 
-const COLORS = ['#E21836', '#FF9800', '#4CAF50', '#2196F3', '#9C27B0'];
+const COLORS = ['#9333ea', '#c084fc', '#d8b4fe', '#6b21a8', '#3b0764'];
 
 export function LeadSourceChart({ data }: { data: any[] }) {
   const vehicleCounts: Record<string, number> = {};
   data.forEach((log) => {
-    let v = log["Program of Interest"]?.trim();
+    let v = log["Course"]?.trim();
     if (v && v !== "-") {
       // Normalize common duplicates slightly
-      if (v.toLowerCase().includes("xuv seven")) v = "AI Masterclass";
-      if (v.toLowerCase().includes("xuv three")) v = "XUV300";
+      
+      
       vehicleCounts[v] = (vehicleCounts[v] || 0) + 1;
     }
   });
@@ -66,8 +66,8 @@ export function LeadStatusChart({ data }: { data: any[] }) {
   let open = 0;
 
   data.forEach((log) => {
-    const hasService = log["Service Type"] && log["Service Type"].trim() !== "" && log["Service Type"].trim() !== "-";
-    const hasVisit = log["Visit Day"] && log["Visit Day"].trim() !== "" && log["Visit Day"].trim() !== "-";
+    const hasService = log["Call Type"] && log["Call Type"].toLowerCase() === "inbound";
+    const hasVisit = log["Final Response"] && log["Final Response"].trim() !== "" && log["Final Response"].trim() !== "-";
     
     if (hasService) service++;
     else if (hasVisit) showroom++;
@@ -75,8 +75,8 @@ export function LeadStatusChart({ data }: { data: any[] }) {
   });
 
   const chartData = [
-    { name: "Office Booking", value: showroom },
-    { name: "Service Lead", value: service },
+    { name: "Outbound", value: showroom },
+    { name: "Inbound", value: service },
     { name: "Open / No Booking", value: open }
   ];
 
@@ -93,7 +93,7 @@ export function LeadStatusChart({ data }: { data: any[] }) {
             dataKey="value"
             stroke="none"
           >
-            <Cell fill="#4CAF50" />
+            <Cell fill="#c084fc" />
             <Cell fill="#2196F3" />
             <Cell fill="#9e9e9e" />
           </Pie>

@@ -1,4 +1,4 @@
-import { Activity, Phone, Calendar, Wrench, Percent, Car, Clock } from "lucide-react";
+import { Activity, Phone, Calendar, Wrench, Percent, Car, Clock, GraduationCap } from "lucide-react";
 import Papa from "papaparse";
 import Link from "next/link";
 import { RefreshButton } from "@/components/RefreshButton";
@@ -13,7 +13,7 @@ export default async function DashboardOverview() {
   let serviceBookings = 0;
   let todaysCalls = 0;
   let conversionRate = "0%";
-  let topProgram = "N/A";
+  let topCourse = "N/A";
   let isOnline = false;
   let logs: any[] = [];
 
@@ -32,8 +32,8 @@ export default async function DashboardOverview() {
       const vehicleCounts: Record<string, number> = {};
 
       logs.forEach((log: any) => {
-        const hasVisit = log["Visit Day"] && log["Visit Day"].trim() !== "";
-        const hasService = log["Service Type"] && log["Service Type"].trim() !== "";
+        const hasVisit = log["Final Response"] && log["Final Response"].trim() !== "";
+        const hasService = log["Call Type"] && log["Call Type"].toLowerCase() === "inbound";
         
         if (hasService) serviceBookings++;
         else if (hasVisit) showroomVisits++;
@@ -51,10 +51,10 @@ export default async function DashboardOverview() {
         }
         if (isToday) todaysCalls++;
 
-        let vehicle = log["Program of Interest"]?.trim();
+        let vehicle = log["Course"]?.trim();
         if (vehicle && vehicle !== "-") {
-          if (vehicle.toLowerCase().includes("xuv seven")) vehicle = "AI Masterclass";
-          if (vehicle.toLowerCase().includes("xuv three")) vehicle = "XUV300";
+          
+          
           vehicleCounts[vehicle] = (vehicleCounts[vehicle] || 0) + 1;
         }
       });
@@ -64,7 +64,7 @@ export default async function DashboardOverview() {
       }
 
       const sortedPrograms = Object.entries(vehicleCounts).sort((a, b) => b[1] - a[1]);
-      if (sortedPrograms.length > 0) topProgram = sortedPrograms[0][0];
+      if (sortedPrograms.length > 0) topCourse = sortedPrograms[0][0];
     }
   } catch (e) {
     console.error("Failed to fetch live stats", e);
@@ -98,7 +98,7 @@ export default async function DashboardOverview() {
         <StatCard title="Consultations" value={showroomVisits} icon={Calendar} trend="Booked by AI" delay="150" />
         <StatCard title="Support Queries" value={serviceBookings} icon={Wrench} trend="Captured by AI" delay="225" />
         <StatCard title="Conversion" value={conversionRate} icon={Percent} trend="Lead Ratio" isGood={parseFloat(conversionRate) > 10} delay="300" />
-        <StatCard title="Top Program" value={topProgram} icon={Car} trend="Most Enquired" delay="375" />
+        <StatCard title="Top Course" value={topCourse} icon={GraduationCap} trend="Most Enquired" delay="375" />
       </div>
 
       {/* Notice Board Section */}
