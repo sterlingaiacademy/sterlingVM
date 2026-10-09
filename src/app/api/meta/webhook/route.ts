@@ -51,11 +51,23 @@ export async function POST(req: NextRequest) {
               });
 
               // Master CRM Upsert
-              await prisma.lead.upsert({
+              const lead = await prisma.lead.upsert({
                 where: { phone: formattedPhone },
                 update: { status: "WhatsApp Reply", source: "WhatsApp" },
                 create: { name: customerName, phone: formattedPhone, status: "New", source: "WhatsApp" }
               });
+
+              // Push to AI Calling Queue!
+              // We check if a pending task already exists to avoid double-queueing
+              const existingTask = await prisma.callTask.findFirst({
+                where: { leadId: lead.id, status: 'Pending' }
+              });
+              if (!existingTask) {
+                await prisma.callTask.create({
+                  data: { leadId: lead.id, status: 'Pending' }
+                });
+                console.log([QUEUE] Lead  added to AI dialing queue.);
+              }
             }
           }
         }
